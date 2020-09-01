@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		99B0F0E024FED68100E806D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0F0DF24FED68100E806D3 /* AppDelegate.swift */; };
+		99B0F0E224FED68100E806D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0F0E124FED68100E806D3 /* SceneDelegate.swift */; };
+		99B0F0E424FED68100E806D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0F0E324FED68100E806D3 /* ViewController.swift */; };
+		99B0F0E724FED68100E806D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B0F0E524FED68100E806D3 /* Main.storyboard */; };
+		99B0F0E924FED68700E806D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99B0F0E824FED68700E806D3 /* Assets.xcassets */; };
+		99B0F0EC24FED68700E806D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B0F0EA24FED68700E806D3 /* LaunchScreen.storyboard */; };
+		99B0F0F424FED6E000E806D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99B0F0F324FED6E000E806D3 /* GoogleService-Info.plist */; };
+		A9EA1EBCB6CFD06ACA102449 /* Pods_LittleChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB72D4A7C59889E1533CFF6 /* Pods_LittleChat.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		537885D2B6695B9EDADED97D /* Pods-LittleChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleChat.release.xcconfig"; path = "Target Support Files/Pods-LittleChat/Pods-LittleChat.release.xcconfig"; sourceTree = "<group>"; };
+		99B0F0DC24FED68100E806D3 /* LittleChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		99B0F0DF24FED68100E806D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		99B0F0E124FED68100E806D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		99B0F0E324FED68100E806D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		99B0F0E624FED68100E806D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		99B0F0E824FED68700E806D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		99B0F0EB24FED68700E806D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		99B0F0ED24FED68700E806D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99B0F0F324FED6E000E806D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ACB72D4A7C59889E1533CFF6 /* Pods_LittleChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9FBA45AE1915B78070E1104 /* Pods-LittleChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleChat.debug.xcconfig"; path = "Target Support Files/Pods-LittleChat/Pods-LittleChat.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		99B0F0D924FED68100E806D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9EA1EBCB6CFD06ACA102449 /* Pods_LittleChat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		81FD9D9662F27C5FA1DF550D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACB72D4A7C59889E1533CFF6 /* Pods_LittleChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		99B0F0D324FED68000E806D3 = {
+			isa = PBXGroup;
+			children = (
+				99B0F0DE24FED68100E806D3 /* LittleChat */,
+				99B0F0DD24FED68100E806D3 /* Products */,
+				B9D2E0CCC62E0F1B1DD73970 /* Pods */,
+				81FD9D9662F27C5FA1DF550D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		99B0F0DD24FED68100E806D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				99B0F0DC24FED68100E806D3 /* LittleChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		99B0F0DE24FED68100E806D3 /* LittleChat */ = {
+			isa = PBXGroup;
+			children = (
+				99B0F0F324FED6E000E806D3 /* GoogleService-Info.plist */,
+				99B0F0DF24FED68100E806D3 /* AppDelegate.swift */,
+				99B0F0E124FED68100E806D3 /* SceneDelegate.swift */,
+				99B0F0E324FED68100E806D3 /* ViewController.swift */,
+				99B0F0E524FED68100E806D3 /* Main.storyboard */,
+				99B0F0E824FED68700E806D3 /* Assets.xcassets */,
+				99B0F0EA24FED68700E806D3 /* LaunchScreen.storyboard */,
+				99B0F0ED24FED68700E806D3 /* Info.plist */,
+			);
+			path = LittleChat;
+			sourceTree = "<group>";
+		};
+		B9D2E0CCC62E0F1B1DD73970 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F9FBA45AE1915B78070E1104 /* Pods-LittleChat.debug.xcconfig */,
+				537885D2B6695B9EDADED97D /* Pods-LittleChat.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		99B0F0DB24FED68100E806D3 /* LittleChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99B0F0F024FED68700E806D3 /* Build configuration list for PBXNativeTarget "LittleChat" */;
+			buildPhases = (
+				B813045F07164E6C718B168C /* [CP] Check Pods Manifest.lock */,
+				99B0F0D824FED68100E806D3 /* Sources */,
+				99B0F0D924FED68100E806D3 /* Frameworks */,
+				99B0F0DA24FED68100E806D3 /* Resources */,
+				F7A277FC85A1397A5C3C8B54 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LittleChat;
+			productName = LittleChat;
+			productReference = 99B0F0DC24FED68100E806D3 /* LittleChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		99B0F0D424FED68000E806D3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Henrique Abreu";
+				TargetAttributes = {
+					99B0F0DB24FED68100E806D3 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = 99B0F0D724FED68000E806D3 /* Build configuration list for PBXProject "LittleChat" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 99B0F0D324FED68000E806D3;
+			productRefGroup = 99B0F0DD24FED68100E806D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				99B0F0DB24FED68100E806D3 /* LittleChat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		99B0F0DA24FED68100E806D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99B0F0EC24FED68700E806D3 /* LaunchScreen.storyboard in Resources */,
+				99B0F0F424FED6E000E806D3 /* GoogleService-Info.plist in Resources */,
+				99B0F0E924FED68700E806D3 /* Assets.xcassets in Resources */,
+				99B0F0E724FED68100E806D3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B813045F07164E6C718B168C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LittleChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7A277FC85A1397A5C3C8B54 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LittleChat/Pods-LittleChat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LittleChat/Pods-LittleChat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LittleChat/Pods-LittleChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		99B0F0D824FED68100E806D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99B0F0E424FED68100E806D3 /* ViewController.swift in Sources */,
+				99B0F0E024FED68100E806D3 /* AppDelegate.swift in Sources */,
+				99B0F0E224FED68100E806D3 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		99B0F0E524FED68100E806D3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				99B0F0E624FED68100E806D3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		99B0F0EA24FED68700E806D3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				99B0F0EB24FED68700E806D3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		99B0F0EE24FED68700E806D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		99B0F0EF24FED68700E806D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		99B0F0F124FED68700E806D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9FBA45AE1915B78070E1104 /* Pods-LittleChat.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KY935XVWY;
+				INFOPLIST_FILE = LittleChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Nuclear-Zero.LittleChat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		99B0F0F224FED68700E806D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 537885D2B6695B9EDADED97D /* Pods-LittleChat.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KY935XVWY;
+				INFOPLIST_FILE = LittleChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Nuclear-Zero.LittleChat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		99B0F0D724FED68000E806D3 /* Build configuration list for PBXProject "LittleChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99B0F0EE24FED68700E806D3 /* Debug */,
+				99B0F0EF24FED68700E806D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99B0F0F024FED68700E806D3 /* Build configuration list for PBXNativeTarget "LittleChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99B0F0F124FED68700E806D3 /* Debug */,
+				99B0F0F224FED68700E806D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 99B0F0D424FED68000E806D3 /* Project object */;
+}
