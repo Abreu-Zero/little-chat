@@ -34,7 +34,15 @@ class SigninViewController: UIViewController {
         
         if verifyPasswordLenght(password: password) && verifyValidPassord(password: password) && verifyPasswordMatches(password: password, confirmation: confirmation){
             showAlert(error: 1)
+        } else if !verifyPasswordLenght(password: password){
+            showAlert(error: 2)
+        } else if !verifyValidPassord(password: password){
+            showAlert(error: 3)
+        } else if !verifyPasswordMatches(password: password, confirmation: confirmation){
+            showAlert(error: 4)
         }
+        
+        print(email)
     }
     
     func verifyPasswordLenght(password: String) -> Bool{
@@ -60,6 +68,15 @@ class SigninViewController: UIViewController {
         case 1:
             title = "SUCCESS"
             text = "Placeholder text"
+        case 2:
+            title = "Password don't have the required lenght"
+            text = "Password must have between 8 and 20 characters"
+        case 3:
+            title = "Weak Password"
+            text = "Password must contain at least one upper/lower case and one special character"
+        case 4:
+            title = "Password don't match confirmation"
+            text = "Please try again"
         default:
             return
         }
