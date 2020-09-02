@@ -57,11 +57,10 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="97.767857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Login-->
         <scene sceneID="7PY-Oc-0h5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4aH-3c-xeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="5Fr-hG-pss" sceneMemberID="viewController">
+                <viewController id="5Fr-hG-pss" customClass="LoginViewController" customModule="LittleChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mNB-X9-tLG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,15 +121,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mUU-nF-L0l"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sRN-0Q-acp"/>
+                    <navigationItem key="navigationItem" title="Login" id="sRN-0Q-acp"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4aH-3c-xeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1862.3188405797102" y="549.77678571428567"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Account-->
         <scene sceneID="adY-Ok-YyT">
             <objects>
-                <viewController id="fsQ-9G-Z4i" sceneMemberID="viewController">
+                <viewController id="fsQ-9G-Z4i" customClass="SigninViewController" customModule="LittleChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="igZ-GU-u7i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,6 +171,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWG-NJ-eCx">
                                 <rect key="frame" x="20" y="497" width="374" height="30"/>
                                 <state key="normal" title="Create Account"/>
+                                <connections>
+                                    <action selector="createAccount:" destination="fsQ-9G-Z4i" eventType="touchUpInside" id="IYE-hx-r4u"/>
+                                </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="h4L-09-nzr">
                                 <rect key="frame" x="197" y="559" width="20" height="20"/>
@@ -184,6 +187,7 @@
                             <constraint firstItem="5XI-xQ-u93" firstAttribute="trailing" secondItem="Iqa-Nn-wkD" secondAttribute="trailing" constant="20" id="CKc-QF-4JE"/>
                             <constraint firstItem="fg8-Wn-E4Z" firstAttribute="bottom" secondItem="e2J-t0-s0I" secondAttribute="top" constant="-4" id="Ew4-Kp-m3w"/>
                             <constraint firstItem="5XI-xQ-u93" firstAttribute="trailing" secondItem="eWG-NJ-eCx" secondAttribute="trailing" constant="20" id="GnO-ky-Bjl"/>
+                            <constraint firstItem="5XI-xQ-u93" firstAttribute="trailing" secondItem="AGF-qj-zaG" secondAttribute="trailing" constant="345" id="HF2-8i-h2b"/>
                             <constraint firstItem="AGF-qj-zaG" firstAttribute="leading" secondItem="5XI-xQ-u93" secondAttribute="leading" constant="20" id="LSi-Rk-1TQ"/>
                             <constraint firstItem="3e2-Dc-Teu" firstAttribute="bottom" secondItem="Iqa-Nn-wkD" secondAttribute="top" constant="-8" id="Lqj-Bn-en1"/>
                             <constraint firstItem="5XI-xQ-u93" firstAttribute="trailing" secondItem="h4L-09-nzr" secondAttribute="trailing" constant="197" id="Lul-jP-KTG"/>
@@ -204,7 +208,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5XI-xQ-u93"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tZW-vM-KZl"/>
+                    <navigationItem key="navigationItem" title="Create Account" id="tZW-vM-KZl"/>
+                    <connections>
+                        <outlet property="confirmationTextField" destination="e2J-t0-s0I" id="YOI-XD-AJ3"/>
+                        <outlet property="emailTextField" destination="3e2-Dc-Teu" id="OsX-Z5-2zd"/>
+                        <outlet property="passwordTextField" destination="a7y-Qc-6PQ" id="O7h-K1-8OC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Amb-3o-xTG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
