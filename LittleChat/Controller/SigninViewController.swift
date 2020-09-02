@@ -33,7 +33,7 @@ class SigninViewController: UIViewController {
         guard let confirmation = confirmationTextField.text else{return}
         
         if verifyPasswordLenght(password: password) && verifyValidPassord(password: password) && verifyPasswordMatches(password: password, confirmation: confirmation){
-            showAlert(error: 1)
+            createUser(password: password, email: email)
         } else if !verifyPasswordLenght(password: password){
             showAlert(error: 2)
         } else if !verifyValidPassord(password: password){
@@ -54,13 +54,24 @@ class SigninViewController: UIViewController {
     }
     
     func verifyValidPassord(password: String) -> Bool{
-        let validPassword = NSPredicate(format: "SELF MATCHES %@ ", "^(?=.*[a-z])(?=.*[0-9])(?=.*[$@$#!%*?&])(?=.*[A-Z]).{8,}$")
+        let validPassword = NSPredicate(format: "SELF MATCHES %@ ", "^(?=.*[a-z])(?=.*[0-9])(?=.*[$@$#!%*?&])(?=.*[A-Z]).{8,20}$")
         return validPassword.evaluate(with: password)
     }
     
+    func createUser(password: String, email: String){
+        let auth = Auth.auth()
+        auth.createUser(withEmail: email, password: password) { (result, error) in
+            guard result != nil else{
+                self.showAlert(error: 999)
+                return
+            }
+            self.showAlert(error: 1)
+        }
+    }
+    
     func showAlert(error: Int){
-        var title = ""
-        var text = ""
+        var title = "Generic Error"
+        var text = "Something went wrong"
         switch error{
         case 0:
             title = "Empty username or password"
