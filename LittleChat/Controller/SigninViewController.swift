@@ -32,7 +32,9 @@ class SigninViewController: UIViewController {
         guard let password = passwordTextField.text else{return}
         guard let confirmation = confirmationTextField.text else{return}
         
-        
+        if verifyPasswordLenght(password: password) && verifyValidPassord(password: password) && verifyPasswordMatches(password: password, confirmation: confirmation){
+            showAlert(error: 1)
+        }
     }
     
     func verifyPasswordLenght(password: String) -> Bool{
@@ -55,6 +57,9 @@ class SigninViewController: UIViewController {
         case 0:
             title = "Empty username or password"
             text = "Please fill the form to create an account"
+        case 1:
+            title = "SUCCESS"
+            text = "Placeholder text"
         default:
             return
         }
