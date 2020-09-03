@@ -26,22 +26,30 @@ class LoginViewController: UIViewController {
         activityIndicator.startAnimating()
         
         guard let username = emailTextField.text else{
-            showAlert()
+            showAlert(title: "Error", text: "username error")
             return
         }
         
         guard let password = passwordTextField.text else{
-            showAlert()
+            showAlert(title: "Error", text: "password error")
             return
         }
         
-        Auth.auth().signIn(withEmail: <#T##String#>, link: <#T##String#>, completion: <#T##AuthDataResultCallback?##AuthDataResultCallback?##(AuthDataResult?, Error?) -> Void#>)
-        print(username + " " + password)
+        Auth.auth().signIn(withEmail: username, password: password) { (result, error) in
+            guard let result = result else{
+                self.showAlert(title: "Error", text: error!.localizedDescription)
+                return
+            }
+
+            self.showAlert(title: "success", text: "you are in, \(String(describing: result.user.email))!")
+        }
+        
+        activityIndicator.stopAnimating()
         
     }
     
-    func showAlert(){
-        let alert = UIAlertController(title: "error", message: "placeholder", preferredStyle: UIAlertController.Style.alert)
+    func showAlert(title: String, text: String){
+        let alert = UIAlertController(title: title, message: text, preferredStyle: UIAlertController.Style.alert)
                
                let action = UIAlertAction(title: "OK", style: .default)
                alert.addAction(action)
