@@ -1,5 +1,5 @@
 //
-//  SigninViewController.swift
+//  CreateAccountViewController.swift
 //  LittleChat
 //
 //  Created by Henrique Abreu on 02/09/2020.
@@ -9,11 +9,12 @@
 import UIKit
 import FirebaseAuth
 
-class SigninViewController: UIViewController {
+class CreateAccountViewController: UIViewController {
 
     
-    //MARK: Text Fields
+    //MARK: IBO
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmationTextField: UITextField!
@@ -25,6 +26,8 @@ class SigninViewController: UIViewController {
     }
     
     @IBAction func createAccount(_ sender: Any) {
+        
+        activityIndicator.startAnimating()
         
         if emailTextField.text == "" || passwordTextField.text == "" || confirmationTextField.text == "" {
             showAlert(code: 0, error: nil)
@@ -44,6 +47,7 @@ class SigninViewController: UIViewController {
         }
         
         print(email)
+        activityIndicator.stopAnimating()
     }
     
     func verifyPasswordLenght(password: String) -> Bool{

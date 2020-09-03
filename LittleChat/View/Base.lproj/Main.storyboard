@@ -24,7 +24,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbC-wj-9LS">
                                 <rect key="frame" x="0.0" y="541" width="414" height="51"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="Sign In"/>
+                                <state key="normal" title="Create Account"/>
                                 <connections>
                                     <segue destination="fsQ-9G-Z4i" kind="show" id="PD4-FZ-w07"/>
                                 </connections>
@@ -90,8 +90,11 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iS3-NJ-3Pj">
                                 <rect key="frame" x="188" y="413" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="login:" destination="5Fr-hG-pss" eventType="touchUpInside" id="AfE-Pr-9la"/>
+                                </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="mWt-nL-5gh">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="mWt-nL-5gh">
                                 <rect key="frame" x="197" y="475" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -122,6 +125,11 @@
                         <viewLayoutGuide key="safeArea" id="mUU-nF-L0l"/>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="sRN-0Q-acp"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="mWt-nL-5gh" id="Bp2-2T-XdD"/>
+                        <outlet property="emailTextField" destination="aoF-MR-Ag9" id="b89-5A-eFR"/>
+                        <outlet property="passwordTextField" destination="CKx-73-TyG" id="BDJ-O8-hYe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aH-3c-xeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,7 +183,7 @@
                                     <action selector="createAccount:" destination="fsQ-9G-Z4i" eventType="touchUpInside" id="IYE-hx-r4u"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="h4L-09-nzr">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="h4L-09-nzr">
                                 <rect key="frame" x="197" y="559" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -210,6 +218,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create Account" id="tZW-vM-KZl"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="h4L-09-nzr" id="wh9-gv-tfI"/>
                         <outlet property="confirmationTextField" destination="e2J-t0-s0I" id="YOI-XD-AJ3"/>
                         <outlet property="emailTextField" destination="3e2-Dc-Teu" id="OsX-Z5-2zd"/>
                         <outlet property="passwordTextField" destination="a7y-Qc-6PQ" id="O7h-K1-8OC"/>
