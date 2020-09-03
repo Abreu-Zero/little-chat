@@ -20,13 +20,14 @@ class SigninViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //TODO: polish this shit
         
     }
     
     @IBAction func createAccount(_ sender: Any) {
         
         if emailTextField.text == "" || passwordTextField.text == "" || confirmationTextField.text == "" {
-            showAlert(error: 0)
+            showAlert(code: 0, error: nil)
         }
         guard let email = emailTextField.text else{return}
         guard let password = passwordTextField.text else{return}
@@ -35,11 +36,11 @@ class SigninViewController: UIViewController {
         if verifyPasswordLenght(password: password) && verifyValidPassord(password: password) && verifyPasswordMatches(password: password, confirmation: confirmation){
             createUser(password: password, email: email)
         } else if !verifyPasswordLenght(password: password){
-            showAlert(error: 2)
+            showAlert(code: 2, error: nil)
         } else if !verifyValidPassord(password: password){
-            showAlert(error: 3)
+            showAlert(code: 3, error: nil)
         } else if !verifyPasswordMatches(password: password, confirmation: confirmation){
-            showAlert(error: 4)
+            showAlert(code: 4, error: nil)
         }
         
         print(email)
@@ -62,17 +63,17 @@ class SigninViewController: UIViewController {
         let auth = Auth.auth()
         auth.createUser(withEmail: email, password: password) { (result, error) in
             guard result != nil else{
-                self.showAlert(error: 999)
+                self.showAlert(code: 5, error: error!)
                 return
             }
-            self.showAlert(error: 1)
+            self.showAlert(code: 1, error: nil)
         }
     }
     
-    func showAlert(error: Int){
+    func showAlert(code: Int, error: Error?){
         var title = "Generic Error"
         var text = "Something went wrong"
-        switch error{
+        switch code{
         case 0:
             title = "Empty username or password"
             text = "Please fill the form to create an account"
@@ -88,6 +89,8 @@ class SigninViewController: UIViewController {
         case 4:
             title = "Password don't match confirmation"
             text = "Please try again"
+        case 5:
+            text = error!.localizedDescription
         default:
             return
         }

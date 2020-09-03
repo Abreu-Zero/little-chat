@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    //TODO: full functionality to check and login
 
 }
 
