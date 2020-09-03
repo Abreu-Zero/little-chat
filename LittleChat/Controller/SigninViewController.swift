@@ -71,23 +71,20 @@ class SigninViewController: UIViewController {
     }
     
     func showAlert(code: Int, error: Error?){
-        var title = "Generic Error"
+        var title = "Error"
         var text = "Something went wrong"
         switch code{
         case 0:
-            title = "Empty username or password"
             text = "Please fill the form to create an account"
         case 1:
             title = "SUCCESS"
-            text = "Placeholder text"
+            text = "Account Created!"
         case 2:
-            title = "Password don't have the required lenght"
-            text = "Password must have between 8 and 20 characters"
+            text = "Password must contain 8 - 20 characters"
         case 3:
-            title = "Weak Password"
             text = "Password must contain at least one upper/lower case and one special character"
         case 4:
-            title = "Password don't match confirmation"
+            title = "Passwords don't match"
             text = "Please try again"
         case 5:
             text = error!.localizedDescription
