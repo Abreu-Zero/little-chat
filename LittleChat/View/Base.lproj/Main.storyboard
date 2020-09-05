@@ -233,17 +233,23 @@
             </objects>
             <point key="canvasLocation" x="1860.8695652173915" y="-149.33035714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Screen View Controller-->
         <scene sceneID="piA-Hc-dwe">
             <objects>
-                <viewController id="y3k-EK-ASC" sceneMemberID="viewController">
+                <viewController id="y3k-EK-ASC" customClass="MainScreenViewController" customModule="LittleChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a7X-OC-xv3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="tM4-bn-uWd"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IFR-Iy-bPi"/>
+                    <navigationItem key="navigationItem" id="IFR-Iy-bPi">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="zpW-NE-gkP">
+                            <connections>
+                                <action selector="logout:" destination="y3k-EK-ASC" id="KE3-bf-sMD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQz-mG-Ia2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
