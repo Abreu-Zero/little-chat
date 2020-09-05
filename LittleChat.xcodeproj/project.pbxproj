@@ -20,8 +20,8 @@
 
 /* Begin PBXFileReference section */
 		537885D2B6695B9EDADED97D /* Pods-LittleChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleChat.release.xcconfig"; path = "Target Support Files/Pods-LittleChat/Pods-LittleChat.release.xcconfig"; sourceTree = "<group>"; };
+		991DE8DF2504089500972A1D /* LittleChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleChat.entitlements; sourceTree = "<group>"; };
 		994C7F1B25001A9400DE5677 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
-		99A214702503FA7100256B23 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		99B0F0DC24FED68100E806D3 /* LittleChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B0F0DF24FED68100E806D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99B0F0E124FED68100E806D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,13 +95,13 @@
 		99B0F0DE24FED68100E806D3 /* LittleChat */ = {
 			isa = PBXGroup;
 			children = (
+				991DE8DF2504089500972A1D /* LittleChat.entitlements */,
 				99B0F0F324FED6E000E806D3 /* GoogleService-Info.plist */,
 				99B0F0DF24FED68100E806D3 /* AppDelegate.swift */,
 				99B0F0E124FED68100E806D3 /* SceneDelegate.swift */,
 				994C7F1925001A1B00DE5677 /* Controller */,
 				994C7F1A25001A3100DE5677 /* View */,
 				99B0F0ED24FED68700E806D3 /* Info.plist */,
-				99A214702503FA7100256B23 /* README.md */,
 			);
 			path = LittleChat;
 			sourceTree = "<group>";
@@ -379,6 +379,7 @@
 			baseConfigurationReference = F9FBA45AE1915B78070E1104 /* Pods-LittleChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LittleChat/LittleChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4KY935XVWY;
 				INFOPLIST_FILE = LittleChat/Info.plist;
@@ -398,6 +399,7 @@
 			baseConfigurationReference = 537885D2B6695B9EDADED97D /* Pods-LittleChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LittleChat/LittleChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4KY935XVWY;
 				INFOPLIST_FILE = LittleChat/Info.plist;

@@ -20,7 +20,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    //TODO: full functionality to check and login
+    //TODO: create func to check if email and password are empty for testability
+    
     
     @IBAction func login(_ sender: Any) {
         activityIndicator.startAnimating()
@@ -40,8 +41,11 @@ class LoginViewController: UIViewController {
                 self.showAlert(title: "Error", text: error!.localizedDescription)
                 return
             }
-
-            self.showAlert(title: "success", text: "you are in, \(String(describing: result.user.email))!")
+            print(result.user)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }
+            
         }
         
         activityIndicator.stopAnimating()

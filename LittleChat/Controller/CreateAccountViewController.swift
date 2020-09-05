@@ -70,7 +70,7 @@ class CreateAccountViewController: UIViewController {
                 self.showAlert(code: 5, error: error!)
                 return
             }
-            self.showAlert(code: 1, error: nil)
+            self.performSegue(withIdentifier: "createAccountSegue", sender: nil)
         }
     }
     

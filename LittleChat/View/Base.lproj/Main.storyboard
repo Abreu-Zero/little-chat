@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a7q-Gp-qAD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a7q-Gp-qAD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -52,6 +52,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="qeG-vB-c6u"/>
+                    <connections>
+                        <segue destination="y3k-EK-ASC" kind="show" identifier="autoLoginSegue" id="k5s-Zj-NkO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -129,6 +132,7 @@
                         <outlet property="activityIndicator" destination="mWt-nL-5gh" id="Bp2-2T-XdD"/>
                         <outlet property="emailTextField" destination="aoF-MR-Ag9" id="b89-5A-eFR"/>
                         <outlet property="passwordTextField" destination="CKx-73-TyG" id="BDJ-O8-hYe"/>
+                        <segue destination="y3k-EK-ASC" kind="show" identifier="loginSegue" id="kef-Bn-Mbm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aH-3c-xeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -222,11 +226,28 @@
                         <outlet property="confirmationTextField" destination="e2J-t0-s0I" id="YOI-XD-AJ3"/>
                         <outlet property="emailTextField" destination="3e2-Dc-Teu" id="OsX-Z5-2zd"/>
                         <outlet property="passwordTextField" destination="a7y-Qc-6PQ" id="O7h-K1-8OC"/>
+                        <segue destination="y3k-EK-ASC" kind="show" identifier="createAccountSegue" id="NJ7-iL-82C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Amb-3o-xTG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1860.8695652173915" y="-149.33035714285714"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="piA-Hc-dwe">
+            <objects>
+                <viewController id="y3k-EK-ASC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a7X-OC-xv3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="tM4-bn-uWd"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="IFR-Iy-bPi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SQz-mG-Ia2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2823" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Aba-cO-Y5N">
@@ -247,4 +268,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="k5s-Zj-NkO"/>
+    </inferredMetricsTieBreakers>
 </document>
