@@ -244,7 +244,7 @@
                         <viewLayoutGuide key="safeArea" id="tM4-bn-uWd"/>
                     </view>
                     <navigationItem key="navigationItem" id="IFR-Iy-bPi">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="zpW-NE-gkP">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="zpW-NE-gkP">
                             <connections>
                                 <action selector="logout:" destination="y3k-EK-ASC" id="KE3-bf-sMD"/>
                             </connections>

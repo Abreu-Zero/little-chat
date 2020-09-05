@@ -11,13 +11,22 @@ import FirebaseAuth
 
 class InitialViewController: UIViewController {
 
+    var isLoggedIn = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let auth = Auth.auth()
-        
         auth.addStateDidChangeListener { (auth, user) in
-            guard user != nil else {return}
+            guard user != nil else {
+                self.isLoggedIn = false
+                return}
+            self.isLoggedIn = true
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if isLoggedIn{
             self.performSegue(withIdentifier: "autoLoginSegue", sender: nil)
         }
     }
