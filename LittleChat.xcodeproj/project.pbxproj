@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		991DE8E1250409AF00972A1D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991DE8E0250409AF00972A1D /* InitialViewController.swift */; };
 		994C7F1C25001A9400DE5677 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994C7F1B25001A9400DE5677 /* CreateAccountViewController.swift */; };
 		99B0F0E024FED68100E806D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0F0DF24FED68100E806D3 /* AppDelegate.swift */; };
 		99B0F0E224FED68100E806D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0F0E124FED68100E806D3 /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		537885D2B6695B9EDADED97D /* Pods-LittleChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleChat.release.xcconfig"; path = "Target Support Files/Pods-LittleChat/Pods-LittleChat.release.xcconfig"; sourceTree = "<group>"; };
 		991DE8DF2504089500972A1D /* LittleChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleChat.entitlements; sourceTree = "<group>"; };
+		991DE8E0250409AF00972A1D /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		994C7F1B25001A9400DE5677 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		99B0F0DC24FED68100E806D3 /* LittleChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B0F0DF24FED68100E806D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				99B0F0E324FED68100E806D3 /* LoginViewController.swift */,
 				994C7F1B25001A9400DE5677 /* CreateAccountViewController.swift */,
+				991DE8E0250409AF00972A1D /* InitialViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				991DE8E1250409AF00972A1D /* InitialViewController.swift in Sources */,
 				994C7F1C25001A9400DE5677 /* CreateAccountViewController.swift in Sources */,
 				99B0F0E424FED68100E806D3 /* LoginViewController.swift in Sources */,
 				99B0F0E024FED68100E806D3 /* AppDelegate.swift in Sources */,
