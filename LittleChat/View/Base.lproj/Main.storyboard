@@ -308,7 +308,7 @@
         <!--New Message-->
         <scene sceneID="COR-JC-FYh">
             <objects>
-                <viewController id="1HV-5g-hld" sceneMemberID="viewController">
+                <viewController id="1HV-5g-hld" customClass="NewMessageViewController" customModule="LittleChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6x5-Kz-ZIP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -347,8 +347,15 @@
                         <viewLayoutGuide key="safeArea" id="hge-CC-Sd4"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Message" id="JBM-ZM-ocg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="D9p-wP-Bg7"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="D9p-wP-Bg7">
+                            <connections>
+                                <action selector="pickImage:" destination="1HV-5g-hld" id="Myo-of-VZc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="14t-be-pai" id="MnY-9m-UOM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I17-q1-vVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

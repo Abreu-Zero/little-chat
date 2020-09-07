@@ -17,6 +17,7 @@
 		99B0F0E924FED68700E806D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99B0F0E824FED68700E806D3 /* Assets.xcassets */; };
 		99B0F0EC24FED68700E806D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B0F0EA24FED68700E806D3 /* LaunchScreen.storyboard */; };
 		99B0F0F424FED6E000E806D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99B0F0F324FED6E000E806D3 /* GoogleService-Info.plist */; };
+		99F8FBF62506BE2300335FAF /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8FBF52506BE2300335FAF /* NewMessageViewController.swift */; };
 		A9EA1EBCB6CFD06ACA102449 /* Pods_LittleChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB72D4A7C59889E1533CFF6 /* Pods_LittleChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		99B0F0EB24FED68700E806D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99B0F0ED24FED68700E806D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99B0F0F324FED6E000E806D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99F8FBF52506BE2300335FAF /* NewMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		ACB72D4A7C59889E1533CFF6 /* Pods_LittleChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FBA45AE1915B78070E1104 /* Pods-LittleChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleChat.debug.xcconfig"; path = "Target Support Files/Pods-LittleChat/Pods-LittleChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 				994C7F1B25001A9400DE5677 /* CreateAccountViewController.swift */,
 				991DE8E0250409AF00972A1D /* InitialViewController.swift */,
 				991DE8E225040BFA00972A1D /* MainScreenViewController.swift */,
+				99F8FBF52506BE2300335FAF /* NewMessageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				99B0F0E024FED68100E806D3 /* AppDelegate.swift in Sources */,
 				99B0F0E224FED68100E806D3 /* SceneDelegate.swift in Sources */,
 				991DE8E325040BFA00972A1D /* MainScreenViewController.swift in Sources */,
+				99F8FBF62506BE2300335FAF /* NewMessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
