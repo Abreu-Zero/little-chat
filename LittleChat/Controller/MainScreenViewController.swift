@@ -26,5 +26,9 @@ class MainScreenViewController: UIViewController {
         }
     }
     
+    // TODO: add new contact
+    // TODO: table view logic
+    // TODO: open conversation logic
+    
 
 }

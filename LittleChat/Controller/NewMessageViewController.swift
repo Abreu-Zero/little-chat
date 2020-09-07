@@ -43,5 +43,9 @@ class NewMessageViewController: UIViewController, UIImagePickerControllerDelegat
         }
         dismiss(animated: true, completion: nil)
     }
+    
+    // TODO: enable keyboard hiding
+    // TODO: hide image or message
+    // TODO: contact selection
 
 }
