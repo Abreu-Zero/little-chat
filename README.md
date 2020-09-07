@@ -5,7 +5,7 @@ So I decided to start a small chat app for iOS
 Why?
 --
 
-Well, this app will work with a simple login and account creation systems with Firebase. I realised that none of my apps on GIthub had anything like that, so I wanted to give it a try
+Well, this app will work with a simple login and account creation systems with Firebase. I realised that none of my apps on Github had anything like that, so I wanted to give it a try
 
 Requirements:
 --
