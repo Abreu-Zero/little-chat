@@ -10,6 +10,7 @@ import UIKit
 
 class NewMessageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
@@ -37,11 +38,12 @@ class NewMessageViewController: UIViewController, UIImagePickerControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print(info)
-        // if image is picked, share button in set to enabled
         if let image = info[.originalImage] as? UIImage {
             imageView.image = image
         }
         dismiss(animated: true, completion: nil)
+    }
+    @IBAction func send(_ sender: Any) {
     }
     
     // TODO: enable keyboard hiding

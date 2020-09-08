@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		991DE8E1250409AF00972A1D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991DE8E0250409AF00972A1D /* InitialViewController.swift */; };
 		991DE8E325040BFA00972A1D /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991DE8E225040BFA00972A1D /* MainScreenViewController.swift */; };
+		992FB32A25080F8D00C7D58A /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992FB32925080F8D00C7D58A /* FirebaseHelper.swift */; };
 		994C7F1C25001A9400DE5677 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994C7F1B25001A9400DE5677 /* CreateAccountViewController.swift */; };
 		99B0F0E024FED68100E806D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0F0DF24FED68100E806D3 /* AppDelegate.swift */; };
 		99B0F0E224FED68100E806D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0F0E124FED68100E806D3 /* SceneDelegate.swift */; };
@@ -26,6 +27,7 @@
 		991DE8DF2504089500972A1D /* LittleChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleChat.entitlements; sourceTree = "<group>"; };
 		991DE8E0250409AF00972A1D /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		991DE8E225040BFA00972A1D /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		992FB32925080F8D00C7D58A /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		994C7F1B25001A9400DE5677 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		99B0F0DC24FED68100E806D3 /* LittleChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B0F0DF24FED68100E806D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 				ACB72D4A7C59889E1533CFF6 /* Pods_LittleChat.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		992FB32825080F6F00C7D58A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				992FB32925080F8D00C7D58A /* FirebaseHelper.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		994C7F1925001A1B00DE5677 /* Controller */ = {
@@ -108,6 +118,7 @@
 				99B0F0F324FED6E000E806D3 /* GoogleService-Info.plist */,
 				99B0F0DF24FED68100E806D3 /* AppDelegate.swift */,
 				99B0F0E124FED68100E806D3 /* SceneDelegate.swift */,
+				992FB32825080F6F00C7D58A /* Model */,
 				994C7F1925001A1B00DE5677 /* Controller */,
 				994C7F1A25001A3100DE5677 /* View */,
 				99B0F0ED24FED68700E806D3 /* Info.plist */,
@@ -240,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				992FB32A25080F8D00C7D58A /* FirebaseHelper.swift in Sources */,
 				991DE8E1250409AF00972A1D /* InitialViewController.swift in Sources */,
 				994C7F1C25001A9400DE5677 /* CreateAccountViewController.swift in Sources */,
 				99B0F0E424FED68100E806D3 /* LoginViewController.swift in Sources */,
