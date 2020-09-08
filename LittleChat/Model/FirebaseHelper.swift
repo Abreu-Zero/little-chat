@@ -24,6 +24,16 @@ class FirebaseHelper{
         return toReturn
     }
     
+    class func createUser(username: String, password: String) -> Error?{
+        var toReturn : Error?        
+        Auth.auth().createUser(withEmail: username, password: password) { (result, error) in
+            if error != nil{
+                toReturn = error
+            }
+        }
+        return toReturn
+    }
+    
     class func saveImageToFirebaseStorage(image: UIImage){
         let storage = Storage.storage().reference()
         let images = storage.child("Images")

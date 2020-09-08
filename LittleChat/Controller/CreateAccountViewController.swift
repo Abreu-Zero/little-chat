@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class CreateAccountViewController: UIViewController {
 
@@ -64,12 +63,10 @@ class CreateAccountViewController: UIViewController {
     }
     
     func createUser(password: String, email: String){
-        let auth = Auth.auth()
-        auth.createUser(withEmail: email, password: password) { (result, error) in
-            guard result != nil else{
-                self.showAlert(code: 5, error: error!)
-                return
-            }
+        
+        if let error = FirebaseHelper.createUser(username: email, password: password){
+            self.showAlert(code: 5, error: error)
+        }else{
             self.performSegue(withIdentifier: "createAccountSegue", sender: nil)
         }
     }
