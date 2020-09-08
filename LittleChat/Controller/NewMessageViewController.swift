@@ -44,6 +44,8 @@ class NewMessageViewController: UIViewController, UIImagePickerControllerDelegat
         dismiss(animated: true, completion: nil)
     }
     @IBAction func send(_ sender: Any) {
+        guard let image = imageView.image else {return}
+        FirebaseHelper.saveImageToFirebaseStorage(image: image)
     }
     
     // TODO: enable keyboard hiding
