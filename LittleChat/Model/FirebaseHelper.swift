@@ -13,6 +13,17 @@ import FirebaseStorage
 
 class FirebaseHelper{
     
+    class func loginUser(username: String, password: String) -> Error?{
+        var toReturn: Error?
+        Auth.auth().signIn(withEmail: username, password: password) { (result, error) in
+            if error != nil{
+                toReturn = error
+            }
+        }
+        
+        return toReturn
+    }
+    
     class func saveImageToFirebaseStorage(image: UIImage){
         let storage = Storage.storage().reference()
         let images = storage.child("Images")
@@ -21,7 +32,7 @@ class FirebaseHelper{
         
         images.child("Image.png").putData(data, metadata: nil) { (data, error) in
             guard let data = data else {
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
                 return
             }
             print("Success at saveImageToFirebaseStorage \n\(String(describing: data.name))")

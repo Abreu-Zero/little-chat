@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -36,16 +35,12 @@ class LoginViewController: UIViewController {
             return
         }
         
-        Auth.auth().signIn(withEmail: username, password: password) { (result, error) in
-            guard let result = result else{
-                self.showAlert(title: "Error", text: error!.localizedDescription)
-                return
-            }
-            print(result.user)
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            
+        let error = FirebaseHelper.loginUser(username: username, password: password)
+        if error != nil{
+            self.showAlert(title: "Error", text: error!.localizedDescription)
+            return
         }
-        
+        self.performSegue(withIdentifier: "loginSegue", sender: nil)
         activityIndicator.stopAnimating()
         
     }
