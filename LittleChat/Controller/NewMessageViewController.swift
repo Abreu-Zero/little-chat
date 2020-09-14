@@ -13,6 +13,8 @@ class NewMessageViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
+    var imageID = NSUUID().uuidString
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,7 +47,8 @@ class NewMessageViewController: UIViewController, UIImagePickerControllerDelegat
     }
     @IBAction func send(_ sender: Any) {
         guard let image = imageView.image else {return}
-        FirebaseHelper.saveImageToFirebaseStorage(image: image)
+        print(FirebaseHelper.saveImageToFirebaseStorage(image: image, id: imageID))
+        navigationController?.popViewController(animated: true)
     }
     
     // TODO: enable keyboard hiding
