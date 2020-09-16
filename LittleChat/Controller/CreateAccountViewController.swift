@@ -13,6 +13,7 @@ class CreateAccountViewController: UIViewController {
     
     //MARK: IBO
     
+    @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -34,8 +35,9 @@ class CreateAccountViewController: UIViewController {
         guard let email = emailTextField.text else{return}
         guard let password = passwordTextField.text else{return}
         guard let confirmation = confirmationTextField.text else{return}
+        guard let nickname = nicknameTextField.text else{return}
         
-        if verifyPasswordLenght(password: password) && verifyValidPassord(password: password) && verifyPasswordMatches(password: password, confirmation: confirmation){
+        if verifyPasswordLenght(password: password) && verifyValidPassord(password: password) && verifyPasswordMatches(password: password, confirmation: confirmation) && verifyNicknameLenght(nickname: nickname){
             createUser(password: password, email: email)
         } else if !verifyPasswordLenght(password: password){
             showAlert(code: 2, error: nil)
@@ -43,6 +45,8 @@ class CreateAccountViewController: UIViewController {
             showAlert(code: 3, error: nil)
         } else if !verifyPasswordMatches(password: password, confirmation: confirmation){
             showAlert(code: 4, error: nil)
+        } else if !verifyNicknameLenght(nickname: nickname){
+            showAlert(code: 6, error: nil)
         }
         
         print(email)
@@ -60,6 +64,10 @@ class CreateAccountViewController: UIViewController {
     func verifyValidPassord(password: String) -> Bool{
         let validPassword = NSPredicate(format: "SELF MATCHES %@ ", "^(?=.*[a-z])(?=.*[0-9])(?=.*[$@$#!%*?&])(?=.*[A-Z]).{8,20}$")
         return validPassword.evaluate(with: password)
+    }
+    
+    func verifyNicknameLenght(nickname: String) -> Bool{
+        return nickname.count >= 0 && nickname.count <= 20
     }
     
     func createUser(password: String, email: String){
