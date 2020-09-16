@@ -38,7 +38,7 @@ class CreateAccountViewController: UIViewController {
         guard let nickname = nicknameTextField.text else{return}
         
         if verifyPasswordLenght(password: password) && verifyValidPassord(password: password) && verifyPasswordMatches(password: password, confirmation: confirmation) && verifyNicknameLenght(nickname: nickname){
-            createUser(password: password, email: email)
+            createUser(password: password, email: email, nickname: nickname)
         } else if !verifyPasswordLenght(password: password){
             showAlert(code: 2, error: nil)
         } else if !verifyValidPassord(password: password){
@@ -67,12 +67,12 @@ class CreateAccountViewController: UIViewController {
     }
     
     func verifyNicknameLenght(nickname: String) -> Bool{
-        return nickname.count >= 0 && nickname.count <= 20
+        return nickname.count >= 1 && nickname.count <= 20
     }
     
-    func createUser(password: String, email: String){
+    func createUser(password: String, email: String, nickname: String){
         
-        if let error = FirebaseHelper.createUser(username: email, password: password){
+        if let error = FirebaseHelper.createUser(username: email, password: password, nickname: nickname){
             self.showAlert(code: 5, error: error)
         }else{
             self.performSegue(withIdentifier: "createAccountSegue", sender: nil)
@@ -98,7 +98,7 @@ class CreateAccountViewController: UIViewController {
         case 5:
             text = error!.localizedDescription
         default:
-            return
+            break
         }
         
         let alert = UIAlertController(title: title, message: text, preferredStyle: UIAlertController.Style.alert)

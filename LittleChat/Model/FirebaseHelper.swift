@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import FirebaseStorage
+import FirebaseDatabase
 
 class FirebaseHelper{
     
@@ -24,12 +25,16 @@ class FirebaseHelper{
         return toReturn
     }
     
-    class func createUser(username: String, password: String) -> Error?{
+    class func createUser(username: String, password: String, nickname: String) -> Error?{
         var toReturn : Error?        
         Auth.auth().createUser(withEmail: username, password: password) { (result, error) in
-            if error != nil{
+            guard let result = result else{
                 toReturn = error
+                return
             }
+            let database = Database.database().reference()
+            let users = database.child("Users")
+            users.child(result.user.uid).setValue(nickname)
         }
         return toReturn
     }
