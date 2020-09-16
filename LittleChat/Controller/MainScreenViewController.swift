@@ -14,7 +14,8 @@ class MainScreenViewController: UIViewController {
     let auth = Auth.auth()
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        FirebaseHelper.getUsers()
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -26,7 +27,7 @@ class MainScreenViewController: UIViewController {
         }
     }
     
-    // TODO: add new contact
+    // TODO: display contacts from firebasehelper
     // TODO: table view logic
     // TODO: open conversation logic
     

@@ -39,6 +39,12 @@ class FirebaseHelper{
         return toReturn
     }
     
+    class func getUsers() -> [LittleChatUsers]{
+        //TODO: implementation
+        let testUser = LittleChatUsers(id: "42", nick: "Test")
+        return [testUser]
+    }
+    
     class func saveImageToFirebaseStorage(image: UIImage, id: String) -> String{
         let storage = Storage.storage().reference()
         let images = storage.child("Images")

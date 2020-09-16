@@ -53,6 +53,8 @@ class NewMessageViewController: UIViewController, UIImagePickerControllerDelegat
     
     // TODO: enable keyboard hiding
     // TODO: hide image or message
+    // TODO: remove image functionalities and add message ones
     // TODO: contact selection
+    // TODO: change this one, we wont be using it 
 
 }

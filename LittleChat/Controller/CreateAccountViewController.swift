@@ -37,8 +37,13 @@ class CreateAccountViewController: UIViewController {
         guard let confirmation = confirmationTextField.text else{return}
         guard let nickname = nicknameTextField.text else{return}
         
-        if verifyPasswordLenght(password: password) && verifyValidPassord(password: password) && verifyPasswordMatches(password: password, confirmation: confirmation) && verifyNicknameLenght(nickname: nickname){
+        if verifyPasswordLenght(password: password)
+            && verifyValidPassord(password: password)
+            && verifyPasswordMatches(password: password, confirmation: confirmation)
+            && verifyNicknameLenght(nickname: nickname){
+            
             createUser(password: password, email: email, nickname: nickname)
+            
         } else if !verifyPasswordLenght(password: password){
             showAlert(code: 2, error: nil)
         } else if !verifyValidPassord(password: password){
