@@ -52,6 +52,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="qeG-vB-c6u"/>
+                    <connections>
+                        <segue destination="aof-tS-LlQ" kind="show" identifier="autoLoginSegue" id="etd-vM-rP2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -129,13 +132,14 @@
                         <outlet property="activityIndicator" destination="mWt-nL-5gh" id="Bp2-2T-XdD"/>
                         <outlet property="emailTextField" destination="aoF-MR-Ag9" id="b89-5A-eFR"/>
                         <outlet property="passwordTextField" destination="CKx-73-TyG" id="BDJ-O8-hYe"/>
+                        <segue destination="aof-tS-LlQ" kind="show" identifier="loginSegue" id="kFu-zo-z1F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aH-3c-xeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1862.3188405797102" y="549.77678571428567"/>
         </scene>
-        <!--Main Screen View Controller-->
+        <!--Title-->
         <scene sceneID="zsz-VB-Owj">
             <objects>
                 <tableViewController id="aof-tS-LlQ" customClass="MainScreenViewController" customModule="LittleChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -144,12 +148,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6Da-JX-O5H">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="109" id="6Da-JX-O5H">
+                                <rect key="frame" x="0.0" y="28" width="414" height="109"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Da-JX-O5H" id="5Nf-fb-70V">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="igf-In-r6v">
+                                            <rect key="frame" x="350" y="0.0" width="64" height="109"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="64" id="bZp-gJ-vUq"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkd-OW-6uu">
+                                            <rect key="frame" x="20" y="44" width="330" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="igf-In-r6v" secondAttribute="trailing" id="BSL-og-Ay7"/>
+                                        <constraint firstItem="qkd-OW-6uu" firstAttribute="leading" secondItem="5Nf-fb-70V" secondAttribute="leading" constant="20" id="BVg-GJ-TG3"/>
+                                        <constraint firstItem="qkd-OW-6uu" firstAttribute="trailing" secondItem="igf-In-r6v" secondAttribute="leading" id="dlU-pf-f0c"/>
+                                        <constraint firstItem="qkd-OW-6uu" firstAttribute="top" secondItem="5Nf-fb-70V" secondAttribute="top" constant="44" id="h1H-S3-L5d"/>
+                                        <constraint firstItem="igf-In-r6v" firstAttribute="top" secondItem="5Nf-fb-70V" secondAttribute="top" id="sVu-Er-cW4"/>
+                                        <constraint firstAttribute="bottom" secondItem="igf-In-r6v" secondAttribute="bottom" id="sxr-Cg-wgY"/>
+                                        <constraint firstAttribute="bottom" secondItem="qkd-OW-6uu" secondAttribute="bottom" constant="44" id="ytL-Q5-pWl"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -158,10 +185,17 @@
                             <outlet property="delegate" destination="aof-tS-LlQ" id="nYF-HT-o6d"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="DRc-Sq-WNf">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="oQI-KR-6az">
+                            <connections>
+                                <action selector="logout:" destination="aof-tS-LlQ" id="24t-3y-2m8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mgt-WS-6nU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2712" y="228"/>
+            <point key="canvasLocation" x="2711.594202898551" y="227.67857142857142"/>
         </scene>
         <!--Create Account-->
         <scene sceneID="adY-Ok-YyT">
@@ -246,6 +280,7 @@
                         <outlet property="emailTextField" destination="3e2-Dc-Teu" id="OsX-Z5-2zd"/>
                         <outlet property="nicknameTextField" destination="bH6-rd-qPd" id="j7o-Dl-7m1"/>
                         <outlet property="passwordTextField" destination="a7y-Qc-6PQ" id="O7h-K1-8OC"/>
+                        <segue destination="aof-tS-LlQ" kind="show" identifier="createAccountSegue" id="p8g-ky-hfe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Amb-3o-xTG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -331,4 +366,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kFu-zo-z1F"/>
+    </inferredMetricsTieBreakers>
 </document>

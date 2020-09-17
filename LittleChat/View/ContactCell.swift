@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactCell{
-    var profilePicture: UIImage?
-    let text: String?
+class ContactCell: UITableViewCell{
+    
+
 }
