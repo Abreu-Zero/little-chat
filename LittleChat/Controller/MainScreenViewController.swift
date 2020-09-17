@@ -9,13 +9,15 @@
 import UIKit
 import FirebaseAuth
 
-class MainScreenViewController: UIViewController {
+class MainScreenViewController: UITableViewController{
 
     let auth = Auth.auth()
+    var users: [LittleChatUsers]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FirebaseHelper.getUsers()
+        
+        users = FirebaseHelper.getUsers()
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -27,9 +29,19 @@ class MainScreenViewController: UIViewController {
         }
     }
     
-    // TODO: display contacts from firebasehelper
-    // TODO: table view logic
-    // TODO: open conversation logic
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        return
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let users = users else {return 0}
+        return users.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactCell
+    }
+    
     
 
 }
