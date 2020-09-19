@@ -39,7 +39,7 @@ class FirebaseHelper{
         return toReturn
     }
     
-    class func getUsers() -> [LittleChatUsers]{
+    class func getUsers(completion: @escaping ([LittleChatUsers]) ->()){
         //TODO: implementation
         var users: [LittleChatUsers] = []
         let database = Database.database().reference()
@@ -47,9 +47,8 @@ class FirebaseHelper{
         databaseUsers.observe(DataEventType.childAdded, with: { (data) in
             let user = LittleChatUsers(id: data.key, nick: data.value as! String)
             users.append(user)
+            completion(users)
         })
-        
-        return users
     }
 
     

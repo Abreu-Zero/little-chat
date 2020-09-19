@@ -18,17 +18,10 @@ class MainScreenViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //users = FirebaseHelper.getUsers()
-        let database = Database.database().reference()
-        let databaseUsers = database.child("Users")
-        databaseUsers.observe(DataEventType.childAdded, with: { (data) in
-            let user = LittleChatUsers(id: data.key, nick: data.value as! String)
-            print(user.nickname)
-            self.users.append(user)
+        FirebaseHelper.getUsers { (data: [LittleChatUsers]) in
+            self.users = data
             self.tableView.reloadData()
-        })
-        tableView.reloadData()
-        
+        }
     }
     
     @IBAction func logout(_ sender: Any) {
