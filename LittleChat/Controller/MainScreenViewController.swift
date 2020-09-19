@@ -8,16 +8,27 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class MainScreenViewController: UITableViewController{
 
     let auth = Auth.auth()
-    var users: [LittleChatUsers]?
+    var users: [LittleChatUsers] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        users = FirebaseHelper.getUsers()
+        //users = FirebaseHelper.getUsers()
+        let database = Database.database().reference()
+        let databaseUsers = database.child("Users")
+        databaseUsers.observe(DataEventType.childAdded, with: { (data) in
+            let user = LittleChatUsers(id: data.key, nick: data.value as! String)
+            print(user.nickname)
+            self.users.append(user)
+            self.tableView.reloadData()
+        })
+        tableView.reloadData()
+        
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -30,16 +41,18 @@ class MainScreenViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        return
+        performSegue(withIdentifier: "toChat", sender: nil)
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let users = users else {return 0}
         return users.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! ContactCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
+        cell.textLabel?.text = users[indexPath.row].nickname
+        return cell
     }
     
     

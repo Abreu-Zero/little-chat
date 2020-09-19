@@ -41,9 +41,17 @@ class FirebaseHelper{
     
     class func getUsers() -> [LittleChatUsers]{
         //TODO: implementation
-        let testUser = LittleChatUsers(id: "42", nick: "Test")
-        return [testUser]
+        var users: [LittleChatUsers] = []
+        let database = Database.database().reference()
+        let databaseUsers = database.child("Users")
+        databaseUsers.observe(DataEventType.childAdded, with: { (data) in
+            let user = LittleChatUsers(id: data.key, nick: data.value as! String)
+            users.append(user)
+        })
+        
+        return users
     }
+
     
     class func saveImageToFirebaseStorage(image: UIImage, id: String) -> String{
         let storage = Storage.storage().reference()
