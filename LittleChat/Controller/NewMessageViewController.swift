@@ -8,24 +8,40 @@
 
 import UIKit
 
-class NewMessageViewController: UIViewController {
-
-    var chat = ""
+class NewMessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var userDestination: LittleChatUsers?
     @IBOutlet weak var pageTitle: UINavigationItem!
+    @IBOutlet weak var messageTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageTitle.title = chat
-
-        // Do any additional setup after loading the view.
+        guard let userDestination = userDestination else{
+            //TODO: show alert for error
+            print("Error while getting userDestination")
+            navigationController?.popViewController(animated: true)
+            return}
+        pageTitle.title = userDestination.nickname
     }
     
-   
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+        //TODO: check messages to return rows
+    }
     
-    // TODO: enable keyboard hiding
-    // TODO: hide image or message
-    // TODO: remove image functionalities and add message ones
-    // TODO: contact selection
-    // TODO: change this one, we wont be using it 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sentMessageCell")!
+        cell.textLabel?.text = "To implement"
+        return cell
+        //TODO: check messages and change cell if sent or received
+    }
+   
+    @IBAction func sendMessage(_ sender: Any) {
+        //TODO: Implementation
+        let message = messageTextField.text ?? ""
+        FirebaseHelper.sendMessageTo(message: message, destination: userDestination!)
+    }
+    
+    
 
 }

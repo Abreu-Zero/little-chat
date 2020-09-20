@@ -11,10 +11,12 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class MainScreenViewController: UITableViewController{
+    
+    //TODO: add search bar!!!
 
     let auth = Auth.auth()
     var users: [LittleChatUsers] = []
-    var chat = ""
+    var chat: LittleChatUsers?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ class MainScreenViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.chat = users[indexPath.row].nickname
+        self.chat = users[indexPath.row]
         performSegue(withIdentifier: "toChat", sender: nil)
         
     }
@@ -53,7 +55,8 @@ class MainScreenViewController: UITableViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toChat"{
             let destination = segue.destination as! NewMessageViewController
-            destination.chat = self.chat
+            guard let chat = chat else{return}
+            destination.userDestination = chat
         }
     }
     
