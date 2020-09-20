@@ -14,6 +14,7 @@ class MainScreenViewController: UITableViewController{
 
     let auth = Auth.auth()
     var users: [LittleChatUsers] = []
+    var chat = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class MainScreenViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.chat = users[indexPath.row].nickname
         performSegue(withIdentifier: "toChat", sender: nil)
         
     }
@@ -46,6 +48,13 @@ class MainScreenViewController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
         cell.textLabel?.text = users[indexPath.row].nickname
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toChat"{
+            let destination = segue.destination as! NewMessageViewController
+            destination.chat = self.chat
+        }
     }
     
     

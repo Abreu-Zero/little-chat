@@ -139,7 +139,7 @@
             </objects>
             <point key="canvasLocation" x="1862.3188405797102" y="549.77678571428567"/>
         </scene>
-        <!--Title-->
+        <!--Chats-->
         <scene sceneID="zsz-VB-Owj">
             <objects>
                 <tableViewController id="aof-tS-LlQ" customClass="MainScreenViewController" customModule="LittleChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -171,7 +171,7 @@
                             <outlet property="delegate" destination="aof-tS-LlQ" id="nYF-HT-o6d"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="DRc-Sq-WNf">
+                    <navigationItem key="navigationItem" title="Chats" id="DRc-Sq-WNf">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="oQI-KR-6az">
                             <connections>
                                 <action selector="logout:" destination="aof-tS-LlQ" id="24t-3y-2m8"/>
@@ -276,7 +276,7 @@
             </objects>
             <point key="canvasLocation" x="1860.8695652173915" y="-149.33035714285714"/>
         </scene>
-        <!--New Message-->
+        <!--Message-->
         <scene sceneID="COR-JC-FYh">
             <objects>
                 <viewController id="1HV-5g-hld" customClass="NewMessageViewController" customModule="LittleChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -284,9 +284,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="14t-be-pai">
-                                <rect key="frame" x="87" y="111" width="240" height="202"/>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="s00-11-2rs">
                                 <rect key="frame" x="20" y="312" width="374" height="272"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -298,43 +295,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCh-wg-L3n">
-                                <rect key="frame" x="189" y="623" width="36" height="30"/>
-                                <state key="normal" title="Send"/>
-                                <connections>
-                                    <action selector="send:" destination="1HV-5g-hld" eventType="touchUpInside" id="aql-Bo-t6C"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="s00-11-2rs" firstAttribute="leading" secondItem="hge-CC-Sd4" secondAttribute="leading" constant="20" id="6PJ-Sz-Hvz"/>
-                            <constraint firstItem="hge-CC-Sd4" firstAttribute="trailing" secondItem="14t-be-pai" secondAttribute="trailing" constant="87" id="Jdi-MX-enb"/>
-                            <constraint firstItem="14t-be-pai" firstAttribute="leading" secondItem="hge-CC-Sd4" secondAttribute="leading" constant="87" id="LXQ-UD-Thb"/>
-                            <constraint firstItem="14t-be-pai" firstAttribute="top" secondItem="hge-CC-Sd4" secondAttribute="top" constant="23" id="Ma4-pG-dDZ"/>
-                            <constraint firstItem="s00-11-2rs" firstAttribute="top" secondItem="14t-be-pai" secondAttribute="bottom" constant="-1" id="SWS-Ry-DGq"/>
-                            <constraint firstItem="kCh-wg-L3n" firstAttribute="centerX" secondItem="s00-11-2rs" secondAttribute="centerX" id="lvz-58-Vgi"/>
-                            <constraint firstItem="kCh-wg-L3n" firstAttribute="top" secondItem="s00-11-2rs" secondAttribute="bottom" constant="39" id="p5A-hZ-Bbo"/>
                             <constraint firstItem="hge-CC-Sd4" firstAttribute="trailing" secondItem="s00-11-2rs" secondAttribute="trailing" constant="20" id="weG-X4-Jdq"/>
                             <constraint firstItem="s00-11-2rs" firstAttribute="centerY" secondItem="6x5-Kz-ZIP" secondAttribute="centerY" id="yby-VT-Peq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hge-CC-Sd4"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Message" id="JBM-ZM-ocg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="D9p-wP-Bg7">
-                            <connections>
-                                <action selector="pickImage:" destination="1HV-5g-hld" id="Myo-of-VZc"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Message" id="JBM-ZM-ocg"/>
                     <connections>
-                        <outlet property="imageView" destination="14t-be-pai" id="MnY-9m-UOM"/>
-                        <outlet property="sendButton" destination="kCh-wg-L3n" id="bVC-T8-Wvl"/>
+                        <outlet property="pageTitle" destination="JBM-ZM-ocg" id="19l-3Q-LKl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I17-q1-vVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3569.5652173913045" y="97.767857142857139"/>
+            <point key="canvasLocation" x="3593" y="228"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Aba-cO-Y5N">
