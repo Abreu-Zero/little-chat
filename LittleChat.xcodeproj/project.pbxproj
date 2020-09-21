@@ -12,6 +12,7 @@
 		992FB32A25080F8D00C7D58A /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992FB32925080F8D00C7D58A /* FirebaseHelper.swift */; };
 		992FB32E25129E8C00C7D58A /* LittleChatUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992FB32D25129E8B00C7D58A /* LittleChatUsers.swift */; };
 		994C7F1C25001A9400DE5677 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994C7F1B25001A9400DE5677 /* CreateAccountViewController.swift */; };
+		996489872518C26600128A89 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996489862518C26600128A89 /* MessageTableViewCell.swift */; };
 		99B0F0E024FED68100E806D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0F0DF24FED68100E806D3 /* AppDelegate.swift */; };
 		99B0F0E224FED68100E806D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0F0E124FED68100E806D3 /* SceneDelegate.swift */; };
 		99B0F0E424FED68100E806D3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0F0E324FED68100E806D3 /* LoginViewController.swift */; };
@@ -31,6 +32,7 @@
 		992FB32925080F8D00C7D58A /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		992FB32D25129E8B00C7D58A /* LittleChatUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleChatUsers.swift; sourceTree = "<group>"; };
 		994C7F1B25001A9400DE5677 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		996489862518C26600128A89 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		99B0F0DC24FED68100E806D3 /* LittleChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B0F0DF24FED68100E806D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99B0F0E124FED68100E806D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				99B0F0E524FED68100E806D3 /* Main.storyboard */,
 				99B0F0E824FED68700E806D3 /* Assets.xcassets */,
 				99B0F0EA24FED68700E806D3 /* LaunchScreen.storyboard */,
+				996489862518C26600128A89 /* MessageTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				991DE8E1250409AF00972A1D /* InitialViewController.swift in Sources */,
 				994C7F1C25001A9400DE5677 /* CreateAccountViewController.swift in Sources */,
 				99B0F0E424FED68100E806D3 /* LoginViewController.swift in Sources */,
+				996489872518C26600128A89 /* MessageTableViewCell.swift in Sources */,
 				99B0F0E024FED68100E806D3 /* AppDelegate.swift in Sources */,
 				99B0F0E224FED68100E806D3 /* SceneDelegate.swift in Sources */,
 				991DE8E325040BFA00972A1D /* MainScreenViewController.swift in Sources */,
