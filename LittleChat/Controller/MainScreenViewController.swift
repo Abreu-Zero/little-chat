@@ -54,6 +54,7 @@ class MainScreenViewController: UITableViewController{
             let destination = segue.destination as! MessageViewController
             guard let chat = chat else{return}
             destination.userDestination = chat
+            destination.userID = self.userID
         }
     }
     

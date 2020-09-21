@@ -30,18 +30,22 @@ class FirebaseHelper{
         return auth.currentUser!.uid
     }
     
-    class func createUser(username: String, password: String, nickname: String) -> Error?{
-        var toReturn : Error?        
+    class func createUser(username: String, password: String, nickname: String, completion: @escaping (Bool, Error?) ->()){
+        
         Auth.auth().createUser(withEmail: username, password: password) { (result, error) in
             guard let result = result else{
-                toReturn = error
+                print("Error while creating account")
+                completion(false, error!)
                 return
             }
+            print("Im here")
             let database = Database.database().reference()
             let users = database.child("Users")
-            users.child(result.user.uid).setValue(nickname)
+            let user = users.child(result.user.uid)
+            user.child("Nickname").setValue(nickname)
+            completion(true, nil)
         }
-        return toReturn
+        
     }
     
     class func getUsers(ID: String, completion: @escaping ([LittleChatUsers]) ->()){
@@ -49,7 +53,8 @@ class FirebaseHelper{
         let database = Database.database().reference()
         let databaseUsers = database.child("Users")
         databaseUsers.observe(DataEventType.childAdded, with: { (data) in
-            let user = LittleChatUsers(id: data.key, nick: data.value as! String)
+            let nickname = data.childSnapshot(forPath: "Nickname").value
+            let user = LittleChatUsers(id: data.key, nick: nickname as! String)
             if user.UID != ID{
                 users.append(user)
             }
@@ -57,8 +62,22 @@ class FirebaseHelper{
         })
     }
 
-    class func sendMessageTo(message: String, destination: LittleChatUsers){
+    class func sendMessageTo(sender: String, message: String, destination: LittleChatUsers){
         print("message sent to \(destination.nickname): \(message)")
+        let database = Database.database().reference()
+        let user = database.child("Users").child(sender)
+        let destination = user.child(destination.UID)
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let stringDate = formatter.string(from: Date())
+        let messageUID = NSUUID().uuidString
+        
+        let msg = destination.child(messageUID)
+        msg.child("Sender").setValue(sender)
+        msg.child("Message").setValue(message)
+        msg.child("Time").setValue(stringDate)
+        
     }
     
     class func logout() -> Bool{

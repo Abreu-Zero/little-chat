@@ -11,6 +11,7 @@ import UIKit
 class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var userDestination: LittleChatUsers?
+    var userID: String?
     @IBOutlet weak var pageTitle: UINavigationItem!
     @IBOutlet weak var messageTextField: UITextField!
     
@@ -39,7 +40,11 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func sendMessage(_ sender: Any) {
         //TODO: Implementation
         let message = messageTextField.text ?? ""
-        FirebaseHelper.sendMessageTo(message: message, destination: userDestination!)
+        guard let userID = userID else{
+            print("userID invalid")
+            return
+        }
+        FirebaseHelper.sendMessageTo(sender: userID, message: message, destination: userDestination!)
     }
     
     

@@ -77,10 +77,12 @@ class CreateAccountViewController: UIViewController {
     
     func createUser(password: String, email: String, nickname: String){
         
-        if let error = FirebaseHelper.createUser(username: email, password: password, nickname: nickname){
-            self.showAlert(code: 5, error: error)
-        }else{
-            self.performSegue(withIdentifier: "createAccountSegue", sender: nil)
+        FirebaseHelper.createUser(username: email, password: password, nickname: nickname) { (sucess, error) in
+            if sucess{
+               self.performSegue(withIdentifier: "createAccountSegue", sender: nil)
+            }else{
+                self.showAlert(code: 5, error: error!)
+            }
         }
     }
     
