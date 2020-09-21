@@ -25,6 +25,12 @@ class FirebaseHelper{
         return toReturn
     }
     
+    class func getUserID() -> String {
+        let auth = Auth.auth()
+        guard let userID = auth.currentUser?.uid else {return "Invalid ID"}
+        return userID
+    }
+    
     class func createUser(username: String, password: String, nickname: String) -> Error?{
         var toReturn : Error?        
         Auth.auth().createUser(withEmail: username, password: password) { (result, error) in
@@ -40,7 +46,6 @@ class FirebaseHelper{
     }
     
     class func getUsers(completion: @escaping ([LittleChatUsers]) ->()){
-        //TODO: implementation
         var users: [LittleChatUsers] = []
         let database = Database.database().reference()
         let databaseUsers = database.child("Users")
@@ -53,6 +58,15 @@ class FirebaseHelper{
 
     class func sendMessageTo(message: String, destination: LittleChatUsers){
         print("message sent to \(destination.nickname): \(message)")
+    }
+    
+    class func logout() -> Bool{
+        do{
+            try Auth.auth().signOut()
+            return true
+        } catch{
+            return false
+        }
     }
 
 }

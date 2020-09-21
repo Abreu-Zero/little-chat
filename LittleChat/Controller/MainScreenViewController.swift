@@ -7,19 +7,17 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
 
 class MainScreenViewController: UITableViewController{
     
     //TODO: add search bar!!!
 
-    let auth = Auth.auth()
     var users: [LittleChatUsers] = []
     var chat: LittleChatUsers?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(FirebaseHelper.getUserID)
         
         FirebaseHelper.getUsers { (data: [LittleChatUsers]) in
             self.users = data
@@ -28,11 +26,10 @@ class MainScreenViewController: UITableViewController{
     }
     
     @IBAction func logout(_ sender: Any) {
-        do{
-            try auth.signOut()
+        if FirebaseHelper.logout(){
             navigationController?.popToRootViewController(animated: true)
-        } catch{
-            print("something went wrong with the logout, but why?")
+        } else{
+            print("ERROR: logout Unsuccessful")
         }
     }
     
@@ -54,7 +51,7 @@ class MainScreenViewController: UITableViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toChat"{
-            let destination = segue.destination as! NewMessageViewController
+            let destination = segue.destination as! MessageViewController
             guard let chat = chat else{return}
             destination.userDestination = chat
         }
