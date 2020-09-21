@@ -14,6 +14,8 @@ import FirebaseDatabase
 
 class FirebaseHelper{
     
+    //TODO: u need to start commenting this code dude
+    
     class func loginUser(username: String, password: String) -> Error?{
         var toReturn: Error?
         Auth.auth().signIn(withEmail: username, password: password) { (result, error) in
@@ -26,6 +28,7 @@ class FirebaseHelper{
     }
     
     class func getUserID() -> String {
+        //FIXME: fix this duuude its unwapping nil!
         let auth = Auth.auth()
         return auth.currentUser!.uid
     }
@@ -38,7 +41,6 @@ class FirebaseHelper{
                 completion(false, error!)
                 return
             }
-            print("Im here")
             let database = Database.database().reference()
             let users = database.child("Users")
             let user = users.child(result.user.uid)
