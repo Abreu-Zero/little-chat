@@ -1,5 +1,5 @@
 //
-//  NewMessageViewController.swift
+//  MessageViewController.swift
 //  LittleChat
 //
 //  Created by Henrique Abreu on 07/09/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewMessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var userDestination: LittleChatUsers?
     @IBOutlet weak var pageTitle: UINavigationItem!
