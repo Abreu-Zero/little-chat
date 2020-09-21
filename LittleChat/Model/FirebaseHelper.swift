@@ -63,20 +63,35 @@ class FirebaseHelper{
     }
 
     class func sendMessageTo(sender: String, message: String, destination: LittleChatUsers){
-        print("message sent to \(destination.nickname): \(message)")
         let database = Database.database().reference()
         let user = database.child("Users").child(sender)
-        let destination = user.child(destination.UID)
+        let destinationDB = user.child(destination.UID)
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let stringDate = formatter.string(from: Date())
         let messageUID = NSUUID().uuidString
         
-        let msg = destination.child(messageUID)
+        let msg = destinationDB.child(messageUID)
         msg.child("Sender").setValue(sender)
         msg.child("Message").setValue(message)
         msg.child("Time").setValue(stringDate)
+        
+        print("message sent to \(destination.nickname): \(message)")
+        //TODO: save messages at sender too!
+    }
+    
+    class func getMessagesFrom(sender: String, destination: LittleChatUsers, completion: @escaping ([[String : String]]) ->()){
+        var messages: [[String : String]] = []
+        let database = Database.database().reference()
+        let dataMessages = database.child("Users").child(sender).child(destination.UID)
+        dataMessages.observe(DataEventType.childAdded, with: { (data) in
+            
+            let message = ["UID": data.key, "Message": data.value(forKey: "Message") as! String, "Sender": data.value(forKey: "Sender") as! String, "Time": data.value(forKey: "Time") as! String]
+            
+            messages.append(message)
+            completion(messages)
+        })
         
     }
     

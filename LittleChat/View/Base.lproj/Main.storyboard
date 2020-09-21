@@ -423,6 +423,7 @@
                     <navigationItem key="navigationItem" title="Message" id="JBM-ZM-ocg"/>
                     <connections>
                         <outlet property="messageTextField" destination="9Tc-Jw-aEj" id="ooP-5O-ltW"/>
+                        <outlet property="messagesTableView" destination="CE3-pj-BdB" id="IeX-BQ-4of"/>
                         <outlet property="pageTitle" destination="JBM-ZM-ocg" id="19l-3Q-LKl"/>
                     </connections>
                 </viewController>

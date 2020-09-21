@@ -12,8 +12,10 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var userDestination: LittleChatUsers?
     var userID: String?
+    var messages: [[String : String]]?
     @IBOutlet weak var pageTitle: UINavigationItem!
     @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var messagesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,18 +25,31 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             navigationController?.popViewController(animated: true)
             return}
         pageTitle.title = userDestination.nickname
+        FirebaseHelper.getMessagesFrom(sender: userID!, destination: userDestination) { (dataMessages) in
+            self.messages = dataMessages
+            self.messagesTableView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-        //TODO: check messages to return rows
+        return messages?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sentMessageCell")!
-        cell.textLabel?.text = "To implement"
-        return cell
-        //TODO: check messages and change cell if sent or received
+        if let message = messages?[indexPath.row]{
+            if message["Sender"] == userID{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "sentMessageCell")!
+                cell.textLabel?.text = message["Text"]
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "receivedMessageCell")!
+                cell.textLabel?.text = message["Text"]
+                return cell
+            }
+        } else{
+            return tableView.dequeueReusableCell(withIdentifier: "sentMessageCell")!
+            //TODO: polish this dude, its terrible
+        }
     }
    
     @IBAction func sendMessage(_ sender: Any) {
@@ -45,6 +60,10 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             return
         }
         FirebaseHelper.sendMessageTo(sender: userID, message: message, destination: userDestination!)
+        FirebaseHelper.getMessagesFrom(sender: userID, destination: userDestination!) { (dataMessages) in
+            self.messages = dataMessages
+            self.messagesTableView.reloadData()
+        }
     }
     
     
