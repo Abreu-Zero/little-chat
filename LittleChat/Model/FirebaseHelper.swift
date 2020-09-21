@@ -27,8 +27,7 @@ class FirebaseHelper{
     
     class func getUserID() -> String {
         let auth = Auth.auth()
-        guard let userID = auth.currentUser?.uid else {return "Invalid ID"}
-        return userID
+        return auth.currentUser!.uid
     }
     
     class func createUser(username: String, password: String, nickname: String) -> Error?{
@@ -45,13 +44,15 @@ class FirebaseHelper{
         return toReturn
     }
     
-    class func getUsers(completion: @escaping ([LittleChatUsers]) ->()){
+    class func getUsers(ID: String, completion: @escaping ([LittleChatUsers]) ->()){
         var users: [LittleChatUsers] = []
         let database = Database.database().reference()
         let databaseUsers = database.child("Users")
         databaseUsers.observe(DataEventType.childAdded, with: { (data) in
             let user = LittleChatUsers(id: data.key, nick: data.value as! String)
-            users.append(user)
+            if user.UID != ID{
+                users.append(user)
+            }
             completion(users)
         })
     }

@@ -12,14 +12,14 @@ class MainScreenViewController: UITableViewController{
     
     //TODO: add search bar!!!
 
+    var userID: String!
     var users: [LittleChatUsers] = []
     var chat: LittleChatUsers?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(FirebaseHelper.getUserID)
-        
-        FirebaseHelper.getUsers { (data: [LittleChatUsers]) in
+        userID = FirebaseHelper.getUserID()
+        FirebaseHelper.getUsers(ID: userID) { (data: [LittleChatUsers]) in
             self.users = data
             self.tableView.reloadData()
         }
