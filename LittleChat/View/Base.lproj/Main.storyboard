@@ -312,18 +312,22 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ps7-HC-WBW">
                                                             <rect key="frame" x="8" y="8" width="326" height="70"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.26693778967618786" green="0.71267810880829008" blue="0.42546367686127345" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="Ps7-HC-WBW" secondAttribute="bottom" constant="8" id="CLe-T8-idh"/>
                                                         <constraint firstItem="Ps7-HC-WBW" firstAttribute="leading" secondItem="yiu-9w-EEN" secondAttribute="leading" constant="8" id="Yi6-0J-1qT"/>
                                                         <constraint firstAttribute="trailing" secondItem="Ps7-HC-WBW" secondAttribute="trailing" constant="8" id="Z7q-Mb-mdW"/>
                                                         <constraint firstItem="Ps7-HC-WBW" firstAttribute="top" secondItem="yiu-9w-EEN" secondAttribute="top" constant="8" id="oKw-Rs-MP7"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="102" id="pHo-VJ-eLv"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -350,7 +354,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZv-YU-Sgl">
                                                             <rect key="frame" x="8" y="8" width="326" height="70"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -361,6 +365,11 @@
                                                         <constraint firstItem="XZv-YU-Sgl" firstAttribute="leading" secondItem="9d1-Lg-ta7" secondAttribute="leading" constant="8" id="Jej-Yb-cc7"/>
                                                         <constraint firstAttribute="bottom" secondItem="XZv-YU-Sgl" secondAttribute="bottom" constant="8" id="n9O-cC-Cqb"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
