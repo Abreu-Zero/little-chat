@@ -12,10 +12,10 @@ class Message{
     
     var uid: String
     var text: String
-    var date: String
+    var date: Date
     var sender: String
     
-    init(uid: String, text: String, date: String, sender: String) {
+    init(uid: String, text: String, date: Date, sender: String) {
         self.uid = uid
         self.text = text
         self.date = date

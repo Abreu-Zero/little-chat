@@ -107,10 +107,13 @@ class FirebaseHelper{
         let dataMessages = database.child("Users").child(sender).child(destination.UID)
         dataMessages.observe(DataEventType.childAdded, with: { (data) in
             
-            
-            let message = Message(uid: data.key, text: data.childSnapshot(forPath: "Message").value as! String, date: data.childSnapshot(forPath: "Time").value as! String, sender: data.childSnapshot(forPath: "Sender").value as! String)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let date = formatter.date(from: data.childSnapshot(forPath: "Time").value as! String)
+            let message = Message(uid: data.key, text: data.childSnapshot(forPath: "Message").value as! String, date:  date!, sender: data.childSnapshot(forPath: "Sender").value as! String)
             
             messages.append(message)
+            messages = messages.sorted { $0.date > $1.date }
             completion(messages)
         })
         
