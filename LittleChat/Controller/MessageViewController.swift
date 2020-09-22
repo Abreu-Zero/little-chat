@@ -36,6 +36,9 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             DispatchQueue.main.async {
                 self.messages = dataMessages
                 self.messagesTableView.reloadData()
+                
+                let indexPath = NSIndexPath(row: self.messages.count - 1, section: 0)
+                self.messagesTableView.scrollToRow(at: indexPath as IndexPath, at: .bottom, animated: true)
             }
             
         }
@@ -67,12 +70,10 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             print("userID invalid")
             return
         }
-        FirebaseHelper.sendMessageTo(sender: userID, message: message, destination: userDestination!) { (success) in
+        FirebaseHelper.sendMessageTo(sender: userID, message: message, destination: userDestination!) { (success, newMessage) in
             if success{
-                FirebaseHelper.getMessagesFrom(sender: userID, destination: self.userDestination!) { (dataMessages) in
-                    self.messages = dataMessages
-                    self.messagesTableView.reloadData()
-                }
+                self.messages.append(newMessage)
+                self.messagesTableView.reloadData()
             }
         }
     }

@@ -64,14 +64,15 @@ class FirebaseHelper{
         })
     }
 
-    class func sendMessageTo(sender: String, message: String, destination: LittleChatUsers, completion: @escaping ((Bool) -> ())){
+    class func sendMessageTo(sender: String, message: String, destination: LittleChatUsers, completion: @escaping ((Bool, Message) -> ())){
         let database = Database.database().reference()
         let user = database.child("Users").child(sender)
         let destinationDB = user.child(destination.UID)
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let stringDate = formatter.string(from: Date())
+        let date = Date()
+        let stringDate = formatter.string(from: date)
         let messageUID = NSUUID().uuidString
         
         let receiver = database.child("Users").child(destination.UID)
@@ -90,7 +91,8 @@ class FirebaseHelper{
                     if let error = error{
                         print("ERROR while saving message to DB \(error.localizedDescription)")
                     } else{
-                        completion(true)
+                        let message = Message(uid: messageUID, text: message, date: date, sender: sender)
+                        completion(true, message)
                     }
                 }
             }
@@ -113,7 +115,7 @@ class FirebaseHelper{
             let message = Message(uid: data.key, text: data.childSnapshot(forPath: "Message").value as! String, date:  date!, sender: data.childSnapshot(forPath: "Sender").value as! String)
             
             messages.append(message)
-            messages = messages.sorted { $0.date > $1.date }
+            messages = messages.sorted { $0.date < $1.date }
             completion(messages)
         })
         
