@@ -16,12 +16,16 @@ class MainScreenViewController: UITableViewController{
     var users: [LittleChatUsers] = []
     var chat: LittleChatUsers?
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.startAnimating()
         userID = FirebaseHelper.getUserID()
         FirebaseHelper.getUsers(ID: userID) { (data: [LittleChatUsers]) in
             self.users = data
             self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
         }
     }
     
