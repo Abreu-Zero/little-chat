@@ -34,15 +34,14 @@ class LoginViewController: UIViewController {
             showAlert(title: "Error", text: "password error")
             return
         }
-        
-        let error = FirebaseHelper.loginUser(username: username, password: password)
-        if error != nil{
-            self.showAlert(title: "Error", text: error!.localizedDescription)
-            return
+        FirebaseHelper.loginUser(username: username, password: password) { (success, error) in
+            if success{
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                self.activityIndicator.stopAnimating()
+            }else{
+               self.showAlert(title: "Error", text: error!.localizedDescription)
+            }
         }
-        self.performSegue(withIdentifier: "loginSegue", sender: nil)
-        activityIndicator.stopAnimating()
-        
     }
     
     func showAlert(title: String, text: String){
