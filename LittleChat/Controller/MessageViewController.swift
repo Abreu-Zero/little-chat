@@ -61,7 +61,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
    
     @IBAction func sendMessage(_ sender: Any) {
-        let message = messageTextField.text ?? ""
+        guard let message = messageTextField.text else{return}
+        if message == "" {return}
         guard let userID = userID else{
             print("userID invalid")
             return
