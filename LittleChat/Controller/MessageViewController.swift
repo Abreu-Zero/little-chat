@@ -10,6 +10,8 @@ import UIKit
 
 class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    //MARK: outlets and properties
+    
     var userDestination: LittleChatUsers?
     var userID: String?
     var messages: [Message] = []
@@ -19,26 +21,27 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         messagesTableView.dataSource = self
         messagesTableView.delegate = self
-        print("number of messages: \(messages.count)")
+        
         guard let userDestination = userDestination else{
             //TODO: show alert for error
             print("Error while getting userDestination")
             navigationController?.popViewController(animated: true)
             return}
-        
         pageTitle.title = userDestination.nickname
+        
         FirebaseHelper.getMessagesFrom(sender: userID!, destination: userDestination) { (dataMessages) in
-            print("getting messages")
             DispatchQueue.main.async {
                 self.messages = dataMessages
                 self.messagesTableView.reloadData()
-                print("number of messages: \(self.messages.count)")
             }
             
         }
     }
+    
+    //MARK: tableView funcs
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
@@ -46,8 +49,6 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messages[indexPath.row]
-        print("senderID: \(message.sender)")
-        print("userID: \(String(describing: userID))")
         if message.sender == userID{
             let cell = tableView.dequeueReusableCell(withIdentifier: "sentMessageCell")! as! MessageTableViewCell
             cell.sentMessage.text = message.text
@@ -60,7 +61,6 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
    
     @IBAction func sendMessage(_ sender: Any) {
-        //TODO: Implementation
         let message = messageTextField.text ?? ""
         guard let userID = userID else{
             print("userID invalid")
@@ -72,8 +72,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.messages = dataMessages
                     self.messagesTableView.reloadData()
                 }
-        }
-            
+            }
         }
     }
     

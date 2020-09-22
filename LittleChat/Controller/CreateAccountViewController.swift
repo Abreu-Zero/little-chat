@@ -86,6 +86,9 @@ class CreateAccountViewController: UIViewController {
         }
     }
     
+    //MARK: showAlert
+    //TODO: We need to create a class to handle those
+    
     func showAlert(code: Int, error: Error?){
         var title = "Error"
         var text = "Something went wrong"
@@ -111,11 +114,11 @@ class CreateAccountViewController: UIViewController {
         let alert = UIAlertController(title: title, message: text, preferredStyle: UIAlertController.Style.alert)
         
         let action = UIAlertAction(title: "OK", style: .default) { [weak self] action in
+            self?.activityIndicator.stopAnimating()
             self?.navigationController?.popViewController(animated: true)
         }
         
         alert.addAction(action)
-        
         self.present(alert, animated: true, completion: nil)
     }
 

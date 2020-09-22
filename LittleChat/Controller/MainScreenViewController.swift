@@ -33,6 +33,8 @@ class MainScreenViewController: UITableViewController{
         }
     }
     
+    //MARK: tableView funcs
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.chat = users[indexPath.row]
         performSegue(withIdentifier: "toChat", sender: nil)
@@ -53,7 +55,7 @@ class MainScreenViewController: UITableViewController{
         if segue.identifier == "toChat"{
             let destination = segue.destination as! MessageViewController
             guard let chat = chat else{return}
-            destination.userDestination = chat
+            destination.userDestination = chat //injecting user and destination to msg
             destination.userID = self.userID
         }
     }
