@@ -83,13 +83,14 @@ class FirebaseHelper{
         //TODO: save messages at sender too!
     }
     
-    class func getMessagesFrom(sender: String, destination: LittleChatUsers, completion: @escaping ([[String : String]]) ->()){
-        var messages: [[String : String]] = []
+    class func getMessagesFrom(sender: String, destination: LittleChatUsers, completion: @escaping ([Message]) ->()){
+        var messages: [Message] = []
         let database = Database.database().reference()
         let dataMessages = database.child("Users").child(sender).child(destination.UID)
         dataMessages.observe(DataEventType.childAdded, with: { (data) in
             
-            let message = ["UID": data.key, "Message": data.value(forKey: "Message") as! String, "Sender": data.value(forKey: "Sender") as! String, "Time": data.value(forKey: "Time") as! String]
+            
+            let message = Message(uid: data.key, text: data.childSnapshot(forPath: "Message").value as! String, date: data.childSnapshot(forPath: "Time").value as! String, sender: data.childSnapshot(forPath: "Message").value as! String)
             
             messages.append(message)
             completion(messages)

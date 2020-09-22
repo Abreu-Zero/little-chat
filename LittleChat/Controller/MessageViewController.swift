@@ -12,43 +12,48 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var userDestination: LittleChatUsers?
     var userID: String?
-    var messages: [[String : String]]?
+    var messages: [Message] = []
     @IBOutlet weak var pageTitle: UINavigationItem!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var messagesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        messagesTableView.dataSource = self
+        messagesTableView.delegate = self
+        print("number of messages: \(messages.count)")
         guard let userDestination = userDestination else{
             //TODO: show alert for error
             print("Error while getting userDestination")
             navigationController?.popViewController(animated: true)
             return}
+        
         pageTitle.title = userDestination.nickname
         FirebaseHelper.getMessagesFrom(sender: userID!, destination: userDestination) { (dataMessages) in
-            self.messages = dataMessages
-            self.messagesTableView.reloadData()
+            print("getting messages")
+            DispatchQueue.main.async {
+                self.messages = dataMessages
+                self.messagesTableView.reloadData()
+                print("number of messages: \(self.messages.count)")
+            }
+            
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages?.count ?? 0
+        return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let message = messages?[indexPath.row]{
-            if message["Sender"] == userID{
-                let cell = tableView.dequeueReusableCell(withIdentifier: "sentMessageCell")!
-                cell.textLabel?.text = message["Text"]
-                return cell
-            }else{
-                let cell = tableView.dequeueReusableCell(withIdentifier: "receivedMessageCell")!
-                cell.textLabel?.text = message["Text"]
-                return cell
-            }
-        } else{
-            return tableView.dequeueReusableCell(withIdentifier: "sentMessageCell")!
-            //TODO: polish this dude, its terrible
+        let message = messages[indexPath.row]
+        if message.sender == userID{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "sentMessageCell")! as! MessageTableViewCell
+            cell.sentMessage.text = message.text
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "receivedMessageCell")! as! MessageTableViewCell
+            cell.receivedMessage.text = message.text
+            return cell
         }
     }
    
