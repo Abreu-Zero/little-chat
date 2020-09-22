@@ -64,7 +64,7 @@ class FirebaseHelper{
         })
     }
 
-    class func sendMessageTo(sender: String, message: String, destination: LittleChatUsers){
+    class func sendMessageTo(sender: String, message: String, destination: LittleChatUsers, completion: @escaping ((Bool) -> ())){
         let database = Database.database().reference()
         let user = database.child("Users").child(sender)
         let destinationDB = user.child(destination.UID)
@@ -74,13 +74,31 @@ class FirebaseHelper{
         let stringDate = formatter.string(from: Date())
         let messageUID = NSUUID().uuidString
         
+        let receiver = database.child("Users").child(destination.UID)
+        let saveSender = receiver.child(sender)
+        let msg2 = saveSender.child(messageUID)
         let msg = destinationDB.child(messageUID)
-        msg.child("Sender").setValue(sender)
-        msg.child("Message").setValue(message)
-        msg.child("Time").setValue(stringDate)
         
-        print("message sent to \(destination.nickname): \(message)")
-        //TODO: save messages at sender too!
+        let msgDict = ["Sender": sender, "Message": message, "Time": stringDate]
+        msg.updateChildValues(msgDict) { (error, database) in
+            if let error = error{
+                print("ERROR while saving message to DB \(error.localizedDescription)")
+            } else{
+                
+                
+                msg2.updateChildValues(msgDict) { (error, database) in
+                    if let error = error{
+                        print("ERROR while saving message to DB \(error.localizedDescription)")
+                    } else{
+                        completion(true)
+                    }
+                }
+            }
+        }
+    }
+    
+    func saveMessage(sender: String, message: String, destination: String){
+        //TODO: refactor sendMessageTo
     }
     
     class func getMessagesFrom(sender: String, destination: LittleChatUsers, completion: @escaping ([Message]) ->()){
@@ -90,7 +108,7 @@ class FirebaseHelper{
         dataMessages.observe(DataEventType.childAdded, with: { (data) in
             
             
-            let message = Message(uid: data.key, text: data.childSnapshot(forPath: "Message").value as! String, date: data.childSnapshot(forPath: "Time").value as! String, sender: data.childSnapshot(forPath: "Message").value as! String)
+            let message = Message(uid: data.key, text: data.childSnapshot(forPath: "Message").value as! String, date: data.childSnapshot(forPath: "Time").value as! String, sender: data.childSnapshot(forPath: "Sender").value as! String)
             
             messages.append(message)
             completion(messages)

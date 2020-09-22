@@ -46,6 +46,8 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messages[indexPath.row]
+        print("senderID: \(message.sender)")
+        print("userID: \(String(describing: userID))")
         if message.sender == userID{
             let cell = tableView.dequeueReusableCell(withIdentifier: "sentMessageCell")! as! MessageTableViewCell
             cell.sentMessage.text = message.text
@@ -64,10 +66,14 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             print("userID invalid")
             return
         }
-        FirebaseHelper.sendMessageTo(sender: userID, message: message, destination: userDestination!)
-        FirebaseHelper.getMessagesFrom(sender: userID, destination: userDestination!) { (dataMessages) in
-            self.messages = dataMessages
-            self.messagesTableView.reloadData()
+        FirebaseHelper.sendMessageTo(sender: userID, message: message, destination: userDestination!) { (success) in
+            if success{
+                FirebaseHelper.getMessagesFrom(sender: userID, destination: self.userDestination!) { (dataMessages) in
+                    self.messages = dataMessages
+                    self.messagesTableView.reloadData()
+                }
+        }
+            
         }
     }
     
