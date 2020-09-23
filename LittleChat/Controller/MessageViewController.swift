@@ -40,7 +40,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.messagesTableView.reloadData()
                 
                 let indexPath = NSIndexPath(row: self.messages.count - 1, section: 0)
-                self.messagesTableView.scrollToRow(at: indexPath as IndexPath, at: .bottom, animated: true)
+                self.messagesTableView.scrollToRow(at: indexPath as IndexPath, at: .bottom, animated: false)
             }
             
         }

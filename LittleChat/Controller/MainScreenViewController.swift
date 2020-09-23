@@ -90,6 +90,10 @@ class MainScreenViewController: UIViewController,  UITableViewDelegate, UITableV
             tableView.reloadData()
             }
         }
-            
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+    }
+
 }
