@@ -8,22 +8,31 @@
 
 import UIKit
 
-class MainScreenViewController: UITableViewController{
-    
-    //TODO: add search bar!!!
+class MainScreenViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
 
     var userID: String!
     var users: [LittleChatUsers] = []
+    var savedUsers: [LittleChatUsers] = []
     var chat: LittleChatUsers?
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        searchBar.delegate = self
+        
         activityIndicator.startAnimating()
         userID = FirebaseHelper.getUserID()
+        
         FirebaseHelper.getUsers(ID: userID) { (data: [LittleChatUsers]) in
             self.users = data
+            self.savedUsers = self.users
             self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
         }
@@ -39,21 +48,23 @@ class MainScreenViewController: UITableViewController{
     
     //MARK: tableView funcs
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.chat = users[indexPath.row]
         performSegue(withIdentifier: "toChat", sender: nil)
         
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
         cell.textLabel?.text = users[indexPath.row].nickname
         return cell
     }
+    
+    // MARK: segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toChat"{
@@ -64,6 +75,21 @@ class MainScreenViewController: UITableViewController{
         }
     }
     
+    //MARK: searchbar
     
-
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == ""{
+            self.users = self.savedUsers
+            tableView.reloadData()
+        }else{
+            self.users = []
+            for user in savedUsers{
+                if user.nickname.contains(searchText){
+                    self.users.append(user)
+                }
+            tableView.reloadData()
+            }
+        }
+            
+    }
 }

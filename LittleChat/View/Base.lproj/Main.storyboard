@@ -79,7 +79,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="qeG-vB-c6u"/>
                     <connections>
-                        <segue destination="aof-tS-LlQ" kind="show" identifier="autoLoginSegue" id="etd-vM-rP2"/>
+                        <segue destination="WBw-sm-eIf" kind="show" identifier="autoLoginSegue" id="NqY-aE-M2j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -166,76 +166,12 @@
                         <outlet property="activityIndicator" destination="mWt-nL-5gh" id="Bp2-2T-XdD"/>
                         <outlet property="emailTextField" destination="aoF-MR-Ag9" id="b89-5A-eFR"/>
                         <outlet property="passwordTextField" destination="CKx-73-TyG" id="BDJ-O8-hYe"/>
-                        <segue destination="aof-tS-LlQ" kind="show" identifier="loginSegue" id="kFu-zo-z1F"/>
+                        <segue destination="WBw-sm-eIf" kind="show" identifier="loginSegue" id="NPm-Rd-Y1d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aH-3c-xeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1862.3188405797102" y="549.77678571428567"/>
-        </scene>
-        <!--Chats-->
-        <scene sceneID="zsz-VB-Owj">
-            <objects>
-                <tableViewController id="aof-tS-LlQ" customClass="MainScreenViewController" customModule="LittleChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="j2u-vA-R8r">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <activityIndicatorView key="tableHeaderView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" id="8ZC-Pg-dW2">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </activityIndicatorView>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" textLabel="yJe-JG-vvC" rowHeight="109" style="IBUITableViewCellStyleDefault" id="6Da-JX-O5H">
-                                <rect key="frame" x="0.0" y="72" width="414" height="109"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Da-JX-O5H" id="5Nf-fb-70V">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yJe-JG-vvC">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="109"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.34822911020000002" green="0.74927574399999997" blue="0.53938281539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </tableViewCellContentView>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="aof-tS-LlQ" id="z3f-VU-RLR"/>
-                            <outlet property="delegate" destination="aof-tS-LlQ" id="nYF-HT-o6d"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Chats" id="DRc-Sq-WNf">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="oQI-KR-6az">
-                            <connections>
-                                <action selector="logout:" destination="aof-tS-LlQ" id="24t-3y-2m8"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="activityIndicator" destination="8ZC-Pg-dW2" id="hJI-Bf-0Uh"/>
-                        <segue destination="1HV-5g-hld" kind="show" identifier="toChat" id="zGw-XD-ks3"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mgt-WS-6nU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="toj-r6-0SI">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <viewLayoutGuide key="safeArea" id="9If-r9-KB3"/>
-                </view>
-            </objects>
-            <point key="canvasLocation" x="2711.594202898551" y="227.67857142857142"/>
         </scene>
         <!--Create Account-->
         <scene sceneID="adY-Ok-YyT">
@@ -354,12 +290,99 @@
                         <outlet property="emailTextField" destination="3e2-Dc-Teu" id="OsX-Z5-2zd"/>
                         <outlet property="nicknameTextField" destination="bH6-rd-qPd" id="j7o-Dl-7m1"/>
                         <outlet property="passwordTextField" destination="a7y-Qc-6PQ" id="O7h-K1-8OC"/>
-                        <segue destination="aof-tS-LlQ" kind="show" identifier="createAccountSegue" id="p8g-ky-hfe"/>
+                        <segue destination="WBw-sm-eIf" kind="show" identifier="createAccountSegue" id="TnF-E6-XTQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Amb-3o-xTG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1860.8695652173915" y="-149.33035714285714"/>
+        </scene>
+        <!--Chats-->
+        <scene sceneID="17E-b9-Dpm">
+            <objects>
+                <viewController id="WBw-sm-eIf" customClass="MainScreenViewController" customModule="LittleChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gfr-P1-VL3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search for nickname" translatesAutoresizingMaskIntoConstraints="NO" id="s54-Tq-vlc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lOs-jz-uN9">
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contactCell" textLabel="tcf-Lv-plz" style="IBUITableViewCellStyleDefault" id="MMT-TD-jMg">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MMT-TD-jMg" id="5Bz-Gy-ldP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tcf-Lv-plz">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Dgo-O5-X4E">
+                                <rect key="frame" x="197" y="221" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lOs-jz-uN9" firstAttribute="leading" secondItem="4Rc-Sc-sqG" secondAttribute="leading" id="3xS-Rm-wzA"/>
+                            <constraint firstItem="s54-Tq-vlc" firstAttribute="top" secondItem="4Rc-Sc-sqG" secondAttribute="top" id="KGw-9r-MQt"/>
+                            <constraint firstItem="lOs-jz-uN9" firstAttribute="bottom" secondItem="4Rc-Sc-sqG" secondAttribute="bottom" id="Tfm-LS-BQF"/>
+                            <constraint firstItem="lOs-jz-uN9" firstAttribute="trailing" secondItem="4Rc-Sc-sqG" secondAttribute="trailing" id="U6m-S3-Wcn"/>
+                            <constraint firstItem="lOs-jz-uN9" firstAttribute="top" secondItem="s54-Tq-vlc" secondAttribute="bottom" id="Y1s-fX-pxM"/>
+                            <constraint firstItem="s54-Tq-vlc" firstAttribute="trailing" secondItem="4Rc-Sc-sqG" secondAttribute="trailing" id="pZ0-s2-8vQ"/>
+                            <constraint firstItem="s54-Tq-vlc" firstAttribute="leading" secondItem="4Rc-Sc-sqG" secondAttribute="leading" id="xfz-yx-iYf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4Rc-Sc-sqG"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chats" id="4Ta-Se-naD">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="TWL-NG-6yy"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="LZp-Zg-YBP">
+                            <connections>
+                                <segue destination="ICI-wo-EGl" kind="show" id="eji-B2-PdJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Dgo-O5-X4E" id="TyS-zQ-XRQ"/>
+                        <outlet property="searchBar" destination="s54-Tq-vlc" id="AtD-Z8-keh"/>
+                        <outlet property="tableView" destination="lOs-jz-uN9" id="z27-E6-xY9"/>
+                        <segue destination="1HV-5g-hld" kind="show" identifier="toChat" id="OVa-YC-QvR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JY5-wl-kAA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2715.9420289855075" y="97.767857142857139"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iHM-jv-KE2">
+            <objects>
+                <viewController id="ICI-wo-EGl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4uF-Nu-nIy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="YgC-Tk-TgS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dFb-sF-dOj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="huA-ua-e5U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3532" y="-157"/>
         </scene>
         <!--Message-->
         <scene sceneID="COR-JC-FYh">
@@ -473,7 +496,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eB0-b1-1dG">
                                 <rect key="frame" x="0.0" y="798" width="414" height="64"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Tc-Jw-aEj">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a message here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Tc-Jw-aEj">
                                         <rect key="frame" x="8" y="15" width="346" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -526,7 +549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I17-q1-vVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3592.753623188406" y="227.67857142857142"/>
+            <point key="canvasLocation" x="3533" y="494"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Aba-cO-Y5N">
@@ -548,6 +571,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kFu-zo-z1F"/>
+        <segue reference="NqY-aE-M2j"/>
     </inferredMetricsTieBreakers>
 </document>

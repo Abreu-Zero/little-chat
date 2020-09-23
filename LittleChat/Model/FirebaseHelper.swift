@@ -64,7 +64,7 @@ class FirebaseHelper{
         })
     }
 
-    class func sendMessageTo(sender: String, message: String, destination: LittleChatUsers, completion: @escaping ((Bool, Message) -> ())){
+    class func sendMessageTo(sender: String, message: String, destination: LittleChatUsers, completion: @escaping ((Bool, Message?) -> ())){
         let database = Database.database().reference()
         let user = database.child("Users").child(sender)
         let destinationDB = user.child(destination.UID)
@@ -90,6 +90,7 @@ class FirebaseHelper{
                 msg2.updateChildValues(msgDict) { (error, database) in
                     if let error = error{
                         print("ERROR while saving message to DB \(error.localizedDescription)")
+                        completion(false, nil)
                     } else{
                         let message = Message(uid: messageUID, text: message, date: date, sender: sender)
                         completion(true, message)

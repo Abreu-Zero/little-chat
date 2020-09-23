@@ -72,12 +72,16 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         FirebaseHelper.sendMessageTo(sender: userID, message: message, destination: userDestination!) { (success, newMessage) in
             if success{
-                self.messages.append(newMessage)
+                self.messages.append(newMessage!)
                 self.messagesTableView.reloadData()
             }
         }
     }
     
+    //MARK: keyboard methods
+    
+    //TODO: show keyboard, hide keyboard, show keyboard again
+    //TODO: delete text after send
     
 
 }
