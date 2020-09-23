@@ -88,7 +88,6 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             if success{
                 guard let newMessage = newMessage else{return}
                 self.messages.append(newMessage)
-                self.messagesTableView.reloadData()
             }
         }
         self.messageTextField.text = ""
