@@ -8,13 +8,14 @@
 
 import UIKit
 
-class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     //MARK: outlets and properties
     
     var userDestination: LittleChatUsers?
     var userID: String?
     var messages: [Message] = []
+    var activeTextField: UITextField?
     @IBOutlet weak var pageTitle: UINavigationItem!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var messagesTableView: UITableView!
@@ -24,6 +25,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         messagesTableView.dataSource = self
         messagesTableView.delegate = self
+        messageTextField.delegate = self
         
         guard let userDestination = userDestination else{
             //TODO: show alert for error
@@ -44,6 +46,18 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    //Subscribing and unsubs to show hide keyboard
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+    }
+    
     //MARK: tableView funcs
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,7 +66,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messages[indexPath.row]
-        if message.sender == userID{
+        if message.sender == userID{ //if sender's ID == user ID, it's a sent msg
             let cell = tableView.dequeueReusableCell(withIdentifier: "sentMessageCell")! as! MessageTableViewCell
             cell.sentMessage.text = message.text
             return cell
@@ -72,16 +86,76 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         FirebaseHelper.sendMessageTo(sender: userID, message: message, destination: userDestination!) { (success, newMessage) in
             if success{
-                self.messages.append(newMessage!)
+                guard let newMessage = newMessage else{return}
+                self.messages.append(newMessage)
                 self.messagesTableView.reloadData()
             }
         }
+        self.messageTextField.text = ""
     }
     
     //MARK: keyboard methods
     
-    //TODO: show keyboard, hide keyboard, show keyboard again
-    //TODO: delete text after send
+    @objc func keyboardWillShow(_ notification:Notification) {
+
+        var shouldMoveViewUp = false
+
+        // if active text field is not nil
+        if let activeTextField = activeTextField {
+
+          let bottomOfTextField = activeTextField.convert(activeTextField.bounds, to: self.view).maxY;
+          
+          let topOfKeyboard = self.view.frame.height - getKeyboardHeight(notification)
+
+          // if the bottom of Textfield is below the top of keyboard, move up
+          if bottomOfTextField > topOfKeyboard {
+            shouldMoveViewUp = true
+          }
+        }
+        if(shouldMoveViewUp){
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+        
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification){
+        view.frame.origin.y = 0
+    }
+
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+        //here we are checking the keyboard height to move the view so we can see the text
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+    
+    func subscribeToKeyboardNotifications() {
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
+    }
+    
+    //MARK: textField methods
+        
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.activeTextField = textField
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+      self.activeTextField = nil
+    }
     
 
 }
