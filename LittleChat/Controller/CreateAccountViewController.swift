@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateAccountViewController: UIViewController {
+class CreateAccountViewController: UIViewController, UITextFieldDelegate {
 
     
     //MARK: IBO
@@ -21,7 +21,10 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TODO: polish this shit
+        nicknameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        confirmationTextField.delegate = self
         
     }
     
@@ -84,6 +87,10 @@ class CreateAccountViewController: UIViewController {
                 self.showAlert(code: 5, error: error!)
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
     
     //MARK: showAlert

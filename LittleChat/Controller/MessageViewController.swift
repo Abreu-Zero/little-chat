@@ -148,6 +148,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        sendMessage(self)
         textField.resignFirstResponder()
         return true
     }

@@ -350,7 +350,11 @@
                         <viewLayoutGuide key="safeArea" id="4Rc-Sc-sqG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Chats" id="4Ta-Se-naD">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="TWL-NG-6yy"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="TWL-NG-6yy">
+                            <connections>
+                                <action selector="logout:" destination="WBw-sm-eIf" id="5uf-uS-sVk"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="LZp-Zg-YBP">
                             <connections>
                                 <segue destination="ICI-wo-EGl" kind="show" id="eji-B2-PdJ"/>

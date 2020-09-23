@@ -80,16 +80,15 @@ class MainScreenViewController: UIViewController,  UITableViewDelegate, UITableV
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == ""{
             self.users = self.savedUsers
-            tableView.reloadData()
         }else{
             self.users = []
             for user in savedUsers{
                 if user.nickname.contains(searchText){
                     self.users.append(user)
                 }
-            tableView.reloadData()
             }
         }
+        tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

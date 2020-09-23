@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailTextField: UITextField!
@@ -17,6 +17,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
     //TODO: create func to check if email and password are empty for testability
@@ -44,6 +46,10 @@ class LoginViewController: UIViewController {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
     func showAlert(title: String, text: String){
         let alert = UIAlertController(title: title, message: text, preferredStyle: UIAlertController.Style.alert)
                
@@ -52,7 +58,5 @@ class LoginViewController: UIViewController {
                
                self.present(alert, animated: true, completion: nil)
     }
-    
-
 }
 
