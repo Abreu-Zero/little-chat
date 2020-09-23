@@ -16,6 +16,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     var userID: String?
     var messages: [Message] = []
     var activeTextField: UITextField?
+    var viewIsMoved = false
     @IBOutlet weak var pageTitle: UINavigationItem!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var messagesTableView: UITableView!
@@ -96,34 +97,37 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: keyboard methods
     
     @objc func keyboardWillShow(_ notification:Notification) {
+        if !viewIsMoved{
+            var shouldMoveViewUp = false
 
-        var shouldMoveViewUp = false
+            // if active text field is not nil
+            if let activeTextField = activeTextField {
 
-        // if active text field is not nil
-        if let activeTextField = activeTextField {
+              let bottomOfTextField = activeTextField.convert(activeTextField.bounds, to: self.view).maxY;
+              
+              let topOfKeyboard = self.view.frame.height - getKeyboardHeight(notification)
 
-          let bottomOfTextField = activeTextField.convert(activeTextField.bounds, to: self.view).maxY;
-          
-          let topOfKeyboard = self.view.frame.height - getKeyboardHeight(notification)
-
-          // if the bottom of Textfield is below the top of keyboard, move up
-          if bottomOfTextField > topOfKeyboard {
-            shouldMoveViewUp = true
-          }
+              // if the bottom of Textfield is below the top of keyboard, move up
+              if bottomOfTextField > topOfKeyboard {
+                shouldMoveViewUp = true
+              }
+            }
+            if(shouldMoveViewUp){
+                view.frame.origin.y -= getKeyboardHeight(notification)
+                viewIsMoved = true
+            }
         }
-        if(shouldMoveViewUp){
-            view.frame.origin.y -= getKeyboardHeight(notification)
-        }
+        
         
     }
     
     @objc func keyboardWillHide(_ notification: Notification){
         view.frame.origin.y = 0
+        viewIsMoved = false
     }
 
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
         //here we are checking the keyboard height to move the view so we can see the text
-        
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.cgRectValue.height
@@ -154,7 +158,6 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-      self.activeTextField = nil
     }
     
 
