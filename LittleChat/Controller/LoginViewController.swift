@@ -19,10 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         emailTextField.delegate = self
         passwordTextField.delegate = self
-    }
-
-    //TODO: create func to check if email and password are empty for testability
-    
+    }    
     
     @IBAction func login(_ sender: Any) {
         activityIndicator.startAnimating()

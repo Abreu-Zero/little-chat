@@ -15,7 +15,7 @@ class InitialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("nightmode: \(UserDefaults.standard.bool(forKey: "nightmode"))")
         let auth = Auth.auth()
         auth.addStateDidChangeListener { (auth, user) in
             guard user != nil else {
