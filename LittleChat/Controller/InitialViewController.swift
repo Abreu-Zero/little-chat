@@ -13,9 +13,11 @@ class InitialViewController: UIViewController {
 
     var isLoggedIn = false
     
+    @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("nightmode: \(UserDefaults.standard.bool(forKey: "nightmode"))")
         let auth = Auth.auth()
         auth.addStateDidChangeListener { (auth, user) in
             guard user != nil else {
@@ -23,6 +25,8 @@ class InitialViewController: UIViewController {
                 return}
             self.isLoggedIn = true
         }
+        
+        Themes.setThemeForButton(button: createAccountButton, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
     }
     
     override func viewDidAppear(_ animated: Bool) {
