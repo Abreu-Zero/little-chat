@@ -19,25 +19,19 @@ class SettingsViewController: UIViewController {
     @IBAction func changeSwitchNight(_ sender: Any) {
         desertSwitch.isOn = false
         littleSwitch.isOn = false
-        checkThemes()
+        UserDefaults.standard.setValue(2, forKey: "theme")
     }
     
     @IBAction func changeSwitchDesert(_ sender: Any) {
         nightModeSwitch.isOn = false
         littleSwitch.isOn = false
-        checkThemes()
+        UserDefaults.standard.setValue(3, forKey: "theme")
     }
     
     @IBAction func changeSwitchLittle(_ sender: Any) {
         desertSwitch.isOn = false
         nightModeSwitch.isOn = false
-        checkThemes()
-    }
-    
-    func checkThemes(){
-        UserDefaults.standard.setValue(nightModeSwitch.isOn, forKey: "nightTheme")
-        UserDefaults.standard.setValue(littleSwitch.isOn, forKey: "littleTheme")
-        UserDefaults.standard.setValue(desertSwitch.isOn, forKey: "desertTheme")
+        UserDefaults.standard.setValue(1, forKey: "theme")
     }
     
     override func viewDidLoad() {
@@ -45,8 +39,8 @@ class SettingsViewController: UIViewController {
         
         switchs = [nightModeSwitch, desertSwitch, littleSwitch]
         
-        nightModeSwitch.isOn = UserDefaults.standard.bool(forKey: "nightTheme")
-        desertSwitch.isOn = UserDefaults.standard.bool(forKey: "desertTheme")
-        littleSwitch.isOn = UserDefaults.standard.bool(forKey: "littleTheme")
+        nightModeSwitch.isOn = UserDefaults.standard.integer(forKey: "theme") == 2
+        desertSwitch.isOn = UserDefaults.standard.integer(forKey: "theme") == 3
+        littleSwitch.isOn = UserDefaults.standard.integer(forKey: "theme") == 1
     }
 }

@@ -18,18 +18,20 @@ class InitialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let auth = Auth.auth()
-        auth.addStateDidChangeListener { (auth, user) in
-            guard user != nil else {
-                self.isLoggedIn = false
-                return}
-            self.isLoggedIn = true
+        FirebaseHelper.autoLogin { (isUserLogged) in
+            self.isLoggedIn = isUserLogged
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         Themes.setThemeForButton(button: createAccountButton, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
+        Themes.setThemeForButton(button: loginButton, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if isLoggedIn{
             self.performSegue(withIdentifier: "autoLoginSegue", sender: nil)
         }

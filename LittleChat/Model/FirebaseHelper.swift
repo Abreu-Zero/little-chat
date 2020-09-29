@@ -28,6 +28,16 @@ class FirebaseHelper{
         }
     }
     
+    class func autoLogin(completion: @escaping (Bool) -> ()){
+        let auth = Auth.auth()
+        auth.addStateDidChangeListener { (auth, user) in
+            guard user != nil else {
+                completion(false)
+                return}
+            completion(true)
+        }
+    }
+    
     class func getUserID() -> String {
         let auth = Auth.auth()
         return auth.currentUser?.uid ?? "Invalid UID"
