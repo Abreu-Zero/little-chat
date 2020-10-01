@@ -13,13 +13,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet var bgView: UIView!
+    @IBOutlet weak var loginButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.delegate = self
         passwordTextField.delegate = self
-    }    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadTheme()
+    }
     
     @IBAction func login(_ sender: Any) {
         activityIndicator.startAnimating()
@@ -57,6 +66,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                self.present(alert, animated: true, completion: nil)
 
         
+    }
+    
+    func loadTheme(){
+        Themes.setThemeForView(view: bgView, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
+        Themes.SetThemeForLabel(label: passLabel, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
+        Themes.SetThemeForLabel(label: emailLabel, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
+        Themes.setThemeForButton(buttonOne: nil, buttonTwo: loginButton, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
     }
 }
 

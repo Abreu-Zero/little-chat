@@ -171,7 +171,11 @@
                     <navigationItem key="navigationItem" title="Login" id="sRN-0Q-acp"/>
                     <connections>
                         <outlet property="activityIndicator" destination="mWt-nL-5gh" id="Bp2-2T-XdD"/>
+                        <outlet property="bgView" destination="mNB-X9-tLG" id="oVz-lN-MIi"/>
+                        <outlet property="emailLabel" destination="9yq-Rz-Z9Z" id="tLN-AK-ljh"/>
                         <outlet property="emailTextField" destination="aoF-MR-Ag9" id="b89-5A-eFR"/>
+                        <outlet property="loginButton" destination="iS3-NJ-3Pj" id="ldM-cm-R1X"/>
+                        <outlet property="passLabel" destination="9Vy-JD-QRO" id="ARx-yh-0V2"/>
                         <outlet property="passwordTextField" destination="CKx-73-TyG" id="BDJ-O8-hYe"/>
                         <segue destination="WBw-sm-eIf" kind="show" identifier="loginSegue" id="NPm-Rd-Y1d"/>
                     </connections>
