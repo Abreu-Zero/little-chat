@@ -26,11 +26,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         guard let username = emailTextField.text else{
             showAlert(title: "Error", text: "username error")
+            self.activityIndicator.stopAnimating()
             return
         }
         
         guard let password = passwordTextField.text else{
             showAlert(title: "Error", text: "password error")
+            self.activityIndicator.stopAnimating()
             return
         }
         FirebaseHelper.loginUser(username: username, password: password) { (success, error) in
@@ -52,8 +54,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                
                let action = UIAlertAction(title: "OK", style: .default)
                alert.addAction(action)
-               
                self.present(alert, animated: true, completion: nil)
+
+        
     }
 }
 

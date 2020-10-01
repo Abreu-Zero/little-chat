@@ -13,7 +13,9 @@ class InitialViewController: UIViewController {
 
     var isLoggedIn = false
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet var bgView: UIView!
     @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
@@ -25,8 +27,7 @@ class InitialViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Themes.setThemeForButton(button: createAccountButton, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
-        Themes.setThemeForButton(button: loginButton, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
+        loadTheme()
         
     }
     
@@ -35,6 +36,13 @@ class InitialViewController: UIViewController {
         if isLoggedIn{
             self.performSegue(withIdentifier: "autoLoginSegue", sender: nil)
         }
+    }
+    
+    func loadTheme(){
+        Themes.setThemeForButton(button: createAccountButton, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
+        Themes.setThemeForButton(button: loginButton, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
+        Themes.setThemeForView(view: view, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
+        Themes.SetThemeForLabel(label: titleLabel, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
     }
 
 }

@@ -80,8 +80,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="qeG-vB-c6u"/>
                     <connections>
+                        <outlet property="bgView" destination="8bC-Xf-vdC" id="LCW-wk-6Lk"/>
                         <outlet property="createAccountButton" destination="cbC-wj-9LS" id="SEx-DM-4nl"/>
                         <outlet property="loginButton" destination="Rld-TS-Ord" id="kFV-uZ-86A"/>
+                        <outlet property="titleLabel" destination="rIF-ap-hTI" id="aMy-tc-tci"/>
                         <segue destination="WBw-sm-eIf" kind="show" identifier="autoLoginSegue" id="NqY-aE-M2j"/>
                     </connections>
                 </viewController>
