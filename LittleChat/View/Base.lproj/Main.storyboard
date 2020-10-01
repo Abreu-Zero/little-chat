@@ -204,18 +204,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a7y-Qc-6PQ" userLabel="Password Text Field">
-                                <rect key="frame" x="8" y="339" width="398" height="34"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqa-Nn-wkD">
                                 <rect key="frame" x="8" y="310" width="398" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a7y-Qc-6PQ" userLabel="Password Text Field">
+                                <rect key="frame" x="8" y="339" width="398" height="34"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3e2-Dc-Teu" userLabel="Email Text Field">
                                 <rect key="frame" x="8" y="181" width="398" height="34"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -301,9 +301,15 @@
                     <navigationItem key="navigationItem" title="Create Account" id="tZW-vM-KZl"/>
                     <connections>
                         <outlet property="activityIndicator" destination="h4L-09-nzr" id="wh9-gv-tfI"/>
+                        <outlet property="bgView" destination="igZ-GU-u7i" id="gm4-32-VN4"/>
+                        <outlet property="confirmLabel" destination="fg8-Wn-E4Z" id="Trl-GE-v1j"/>
                         <outlet property="confirmationTextField" destination="e2J-t0-s0I" id="YOI-XD-AJ3"/>
+                        <outlet property="createAccountButton" destination="eWG-NJ-eCx" id="lHK-2K-S3H"/>
+                        <outlet property="emailLabel" destination="AGF-qj-zaG" id="2aq-7S-h13"/>
                         <outlet property="emailTextField" destination="3e2-Dc-Teu" id="OsX-Z5-2zd"/>
+                        <outlet property="nickLabel" destination="Lih-TP-FmP" id="auj-ed-Y5n"/>
                         <outlet property="nicknameTextField" destination="bH6-rd-qPd" id="j7o-Dl-7m1"/>
+                        <outlet property="passLabel" destination="Iqa-Nn-wkD" id="fNG-lA-O0X"/>
                         <outlet property="passwordTextField" destination="a7y-Qc-6PQ" id="O7h-K1-8OC"/>
                         <segue destination="WBw-sm-eIf" kind="show" identifier="createAccountSegue" id="TnF-E6-XTQ"/>
                     </connections>
@@ -659,7 +665,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NqY-aE-M2j"/>
+        <segue reference="TnF-E6-XTQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

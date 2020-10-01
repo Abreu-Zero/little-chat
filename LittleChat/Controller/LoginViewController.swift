@@ -69,10 +69,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func loadTheme(){
-        Themes.setThemeForView(view: bgView, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
-        Themes.SetThemeForLabel(label: passLabel, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
-        Themes.SetThemeForLabel(label: emailLabel, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
-        Themes.setThemeForButton(buttonOne: nil, buttonTwo: loginButton, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
+        Themes.setThemeForView(view: bgView)
+        Themes.SetThemeForLabel(label: passLabel)
+        Themes.SetThemeForLabel(label: emailLabel)
+        Themes.setThemeForButton(buttonOne: nil, buttonTwo: loginButton)
     }
 }
 

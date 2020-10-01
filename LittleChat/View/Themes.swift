@@ -17,7 +17,10 @@ class Themes{
         case little = 1
     }
     
-    class func setThemeForButton(buttonOne: UIButton?, buttonTwo: UIButton?, theme: Theme){
+    class func setThemeForButton(buttonOne: UIButton?, buttonTwo: UIButton?){
+        
+        let theme = Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))
+        
         if let buttonOne = buttonOne{
             switch theme{
             case .desert:
@@ -29,7 +32,8 @@ class Themes{
             case .little:
                 buttonOne.backgroundColor = UIColor.systemTeal
                 buttonOne.setTitleColor(UIColor.black, for: UIControl.State.normal)
-
+            default:
+                break
             }
         }
         
@@ -44,13 +48,16 @@ class Themes{
             case .little:
                 buttonTwo.backgroundColor = UIColor.init(red: 1/255*86, green: 1/255*192, blue: 1/255*136, alpha: 1)
                 buttonTwo.setTitleColor(UIColor.black, for: UIControl.State.normal)
-
+            default:
+                break
             }
         }
         
     }
     
-    class func setThemeForView(view: UIView, theme: Theme){
+    class func setThemeForView(view: UIView){
+        let theme = Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))
+
         switch theme{
         case .desert:
             view.backgroundColor? = UIColor.init(red: 1, green: 1, blue: 1/255*204, alpha: 1)
@@ -58,10 +65,14 @@ class Themes{
             view.backgroundColor = UIColor.darkGray
         case .little:
             view.backgroundColor = UIColor.white
+        default:
+            break
         }
     }
     
-    class func SetThemeForLabel(label: UILabel, theme: Theme){
+    class func SetThemeForLabel(label: UILabel){
+        let theme = Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))
+
         switch theme{
         case .desert:
             label.textColor? = UIColor.black
@@ -69,6 +80,8 @@ class Themes{
             label.textColor = UIColor.white
         case .little:
             label.textColor = UIColor.black
+        default:
+            break
         }
     }
 }

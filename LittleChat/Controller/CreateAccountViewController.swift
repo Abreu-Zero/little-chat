@@ -18,6 +18,12 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmationTextField: UITextField!
+    @IBOutlet weak var confirmLabel: UILabel!
+    @IBOutlet weak var passLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var nickLabel: UILabel!
+    @IBOutlet var bgView: UIView!
+    @IBOutlet weak var createAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +32,11 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
         confirmationTextField.delegate = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadTheme()
     }
     
     @IBAction func createAccount(_ sender: Any) {
@@ -127,6 +138,15 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func loadTheme(){
+        Themes.setThemeForView(view: bgView)
+        Themes.setThemeForButton(buttonOne: createAccountButton, buttonTwo: nil)
+        Themes.SetThemeForLabel(label: confirmLabel)
+        Themes.SetThemeForLabel(label: passLabel)
+        Themes.SetThemeForLabel(label: nickLabel)
+        Themes.SetThemeForLabel(label: emailLabel)
     }
 
 
