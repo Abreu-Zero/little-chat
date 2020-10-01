@@ -39,8 +39,7 @@ class InitialViewController: UIViewController {
     }
     
     func loadTheme(){
-        Themes.setThemeForButton(button: createAccountButton, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
-        Themes.setThemeForButton(button: loginButton, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
+        Themes.setThemeForButton(buttonOne: createAccountButton, buttonTwo: loginButton, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
         Themes.setThemeForView(view: view, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
         Themes.SetThemeForLabel(label: titleLabel, theme: Themes.Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))!)
     }
