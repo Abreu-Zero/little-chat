@@ -468,6 +468,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="dFb-sF-dOj"/>
                     <connections>
+                        <outlet property="bgView" destination="4uF-Nu-nIy" id="Wqa-oF-czO"/>
                         <outlet property="desertSwitch" destination="K34-3c-bgg" id="lkV-hp-Gjd"/>
                         <outlet property="littleSwitch" destination="uLQ-nc-xga" id="8sa-VA-mK3"/>
                         <outlet property="nightModeSwitch" destination="QqY-Va-Zql" id="fWJ-5b-NHW"/>
@@ -531,7 +532,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="yiu-9w-EEN" firstAttribute="top" secondItem="KLe-kX-W0a" secondAttribute="top" constant="8" id="8m5-sP-51T"/>
                                                 <constraint firstAttribute="bottom" secondItem="yiu-9w-EEN" secondAttribute="bottom" constant="8" id="Xxh-uV-FOQ"/>
@@ -540,6 +541,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="sentBgView" destination="yiu-9w-EEN" id="omX-UZ-2uu"/>
+                                            <outlet property="sentContentView" destination="KLe-kX-W0a" id="fhM-YC-MV6"/>
                                             <outlet property="sentMessage" destination="Ps7-HC-WBW" id="sPx-EB-H3Z"/>
                                         </connections>
                                     </tableViewCell>
@@ -574,7 +577,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="9d1-Lg-ta7" secondAttribute="bottom" constant="8" id="IXc-r4-t7a"/>
                                                 <constraint firstItem="9d1-Lg-ta7" firstAttribute="top" secondItem="Lpc-ko-VKf" secondAttribute="top" constant="8" id="bof-4W-Aq2"/>
@@ -583,6 +586,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="receivedBgView" destination="9d1-Lg-ta7" id="RlB-Lr-v2a"/>
+                                            <outlet property="receivedContentView" destination="Lpc-ko-VKf" id="wpz-3J-wML"/>
                                             <outlet property="receivedMessage" destination="XZv-YU-Sgl" id="mbb-Pf-ilg"/>
                                         </connections>
                                     </tableViewCell>
@@ -602,6 +607,11 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="W2o-f5-t8m"/>
                                         </constraints>
                                         <state key="normal" title="Send"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="sendMessage:" destination="1HV-5g-hld" eventType="touchUpInside" id="8HI-Ag-Ao1"/>
                                         </connections>
@@ -637,9 +647,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Message" id="JBM-ZM-ocg"/>
                     <connections>
+                        <outlet property="bgView" destination="6x5-Kz-ZIP" id="nVP-Aa-gL1"/>
                         <outlet property="messageTextField" destination="9Tc-Jw-aEj" id="ooP-5O-ltW"/>
                         <outlet property="messagesTableView" destination="CE3-pj-BdB" id="IeX-BQ-4of"/>
                         <outlet property="pageTitle" destination="JBM-ZM-ocg" id="19l-3Q-LKl"/>
+                        <outlet property="sendBgView" destination="eB0-b1-1dG" id="JnY-wh-jtQ"/>
+                        <outlet property="sendButton" destination="2so-3X-5uK" id="zkg-DY-Rye"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I17-q1-vVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -666,7 +679,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TnF-E6-XTQ"/>
+        <segue reference="NPm-Rd-Y1d"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

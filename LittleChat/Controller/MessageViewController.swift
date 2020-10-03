@@ -19,6 +19,9 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     var viewIsMoved = false
     @IBOutlet weak var pageTitle: UINavigationItem!
     @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet var bgView: UIView!
+    @IBOutlet weak var sendBgView: UIView!
+    @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messagesTableView: UITableView!
     
     override func viewDidLoad() {
@@ -52,6 +55,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
+        loadTheme()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,10 +74,12 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         if message.sender == userID{ //if sender's ID == user ID, it's a sent msg
             let cell = tableView.dequeueReusableCell(withIdentifier: "sentMessageCell")! as! MessageTableViewCell
             cell.sentMessage.text = message.text
+            Themes.setThemeForConversationCell(cell: cell, isSentMessage: true)
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "receivedMessageCell")! as! MessageTableViewCell
             cell.receivedMessage.text = message.text
+            Themes.setThemeForConversationCell(cell: cell, isSentMessage: false)
             return cell
         }
     }
@@ -158,6 +164,12 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+    }
+    
+    func loadTheme(){
+        Themes.setThemeForView(view: bgView)
+        Themes.setThemeForView(view: sendBgView)
+        Themes.setThemeForView(view: messagesTableView)
     }
     
 

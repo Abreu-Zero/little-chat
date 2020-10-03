@@ -19,6 +19,10 @@ class MessageTableViewCell: UITableViewCell {
     }
 
     @IBOutlet weak var sentMessage: UILabel!
+    @IBOutlet weak var sentBgView: UIView!
+    @IBOutlet weak var sentContentView: UIView!
+    @IBOutlet weak var receivedBgView: UIView!
+    @IBOutlet weak var receivedContentView: UIView!
     @IBOutlet weak var receivedMessage: UILabel!
     
     

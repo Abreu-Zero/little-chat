@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var nightModeSwitch: UISwitch!
     @IBOutlet weak var desertSwitch: UISwitch!
     @IBOutlet weak var littleSwitch: UISwitch!
+    @IBOutlet var bgView: UIView!
     
     var switchs: [UISwitch]?
     
@@ -20,18 +21,21 @@ class SettingsViewController: UIViewController {
         desertSwitch.isOn = false
         littleSwitch.isOn = false
         UserDefaults.standard.setValue(2, forKey: "theme")
+        loadTheme()
     }
     
     @IBAction func changeSwitchDesert(_ sender: Any) {
         nightModeSwitch.isOn = false
         littleSwitch.isOn = false
         UserDefaults.standard.setValue(3, forKey: "theme")
+        loadTheme()
     }
     
     @IBAction func changeSwitchLittle(_ sender: Any) {
         desertSwitch.isOn = false
         nightModeSwitch.isOn = false
         UserDefaults.standard.setValue(1, forKey: "theme")
+        loadTheme()
     }
     
     override func viewDidLoad() {
@@ -42,5 +46,19 @@ class SettingsViewController: UIViewController {
         nightModeSwitch.isOn = UserDefaults.standard.integer(forKey: "theme") == 2
         desertSwitch.isOn = UserDefaults.standard.integer(forKey: "theme") == 3
         littleSwitch.isOn = UserDefaults.standard.integer(forKey: "theme") == 1
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadTheme()
+    }
+    
+    func loadTheme(){
+        Themes.setThemeForView(view: bgView)
+        Themes.setThemeForRadio(radio: desertSwitch)
+        Themes.setThemeForRadio(radio: nightModeSwitch)
+        Themes.setThemeForRadio(radio: littleSwitch)
+
+
     }
 }

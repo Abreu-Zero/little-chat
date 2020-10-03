@@ -105,9 +105,44 @@ class Themes{
         }
     }
     
-    class func setThemeForConversationCell(cell: UITableViewCell){
-        //TODO: Implement theme for conversation cell
-        return
+    class func setThemeForConversationCell(cell: MessageTableViewCell, isSentMessage: Bool){
+        let theme = Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))
+        
+        if isSentMessage{
+            switch theme{
+            case .desert:
+                cell.sentMessage?.textColor? = UIColor.black
+                cell.sentContentView.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1/255*204, alpha: 1)
+                cell.sentBgView.backgroundColor = UIColor.init(red: 1/255*102, green: 1/255*102, blue: 0, alpha: 1)
+            case .night:
+                cell.sentMessage?.textColor? = UIColor.white
+                cell.sentContentView.backgroundColor = UIColor.darkGray
+                cell.sentBgView.backgroundColor =  UIColor.init(red: 1/255*32, green: 1/255*32, blue: 1/255*32, alpha: 1)
+            case .little:
+                cell.sentMessage?.textColor? = UIColor.black
+                cell.sentContentView.backgroundColor = UIColor.white
+                cell.sentBgView.backgroundColor = UIColor.systemTeal
+            default:
+                break
+            }
+        }else{
+            switch theme{
+            case .desert:
+                cell.receivedMessage?.textColor? = UIColor.black
+                cell.receivedContentView.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1/255*204, alpha: 1)
+                cell.receivedBgView.backgroundColor = UIColor.init(red: 1/255*153, green: 1/255*153, blue: 0, alpha: 1)
+            case .night:
+                cell.receivedMessage?.textColor? = UIColor.white
+                cell.receivedContentView.backgroundColor = UIColor.darkGray
+                cell.receivedBgView.backgroundColor =  UIColor.init(red: 1/255*64, green: 1/255*64, blue: 1/255*64, alpha: 1)
+            case .little:
+                cell.receivedMessage?.textColor? = UIColor.black
+                cell.receivedContentView.backgroundColor = UIColor.white
+                cell.receivedBgView.backgroundColor = UIColor.init(red: 1/255*86, green: 1/255*192, blue: 1/255*136, alpha: 1)
+            default:
+                break
+            }
+        }
     }
     
     class func setThemeForSearchBar(searchBar : UISearchBar){
@@ -123,7 +158,20 @@ class Themes{
         default:
             break
         }
-
+    }
+    
+    class func setThemeForRadio(radio: UISwitch){
+        let theme = Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))
         
+        switch theme{
+        case .desert:
+            radio.onTintColor = UIColor.init(red: 1/255*153, green: 1/255*153, blue: 0, alpha: 1)
+        case .night:
+            radio.onTintColor = UIColor.init(red: 1/255*64, green: 1/255*64, blue: 1/255*64, alpha: 1)
+        case .little:
+            radio.onTintColor = UIColor.init(red: 1/255*86, green: 1/255*192, blue: 1/255*136, alpha: 1)
+        default:
+            break
+        }
     }
 }
