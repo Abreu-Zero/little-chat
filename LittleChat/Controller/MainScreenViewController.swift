@@ -15,6 +15,7 @@ class MainScreenViewController: UIViewController,  UITableViewDelegate, UITableV
     var savedUsers: [LittleChatUsers] = []
     var chat: LittleChatUsers?
     
+    @IBOutlet var bgView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -36,6 +37,11 @@ class MainScreenViewController: UIViewController,  UITableViewDelegate, UITableV
             self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadTheme()
     }
     
     @IBAction func logout(_ sender: Any) {
@@ -60,6 +66,7 @@ class MainScreenViewController: UIViewController,  UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
+        Themes.setThemeForContactCell(cell: cell)
         cell.textLabel?.text = users[indexPath.row].nickname
         return cell
     }
@@ -93,6 +100,13 @@ class MainScreenViewController: UIViewController,  UITableViewDelegate, UITableV
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
+    }
+    
+    func loadTheme(){
+        Themes.setThemeForView(view: tableView)
+        Themes.setThemeForView(view: bgView)
+        Themes.setThemeForSearchBar(searchBar: searchBar)
+        tableView.reloadData()
     }
 
 }

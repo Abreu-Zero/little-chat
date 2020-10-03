@@ -384,6 +384,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="Dgo-O5-X4E" id="TyS-zQ-XRQ"/>
+                        <outlet property="bgView" destination="Gfr-P1-VL3" id="Xvm-bW-1VZ"/>
                         <outlet property="searchBar" destination="s54-Tq-vlc" id="AtD-Z8-keh"/>
                         <outlet property="tableView" destination="lOs-jz-uN9" id="z27-E6-xY9"/>
                         <segue destination="1HV-5g-hld" kind="show" identifier="toChat" id="OVa-YC-QvR"/>

@@ -2,6 +2,8 @@
 //  Themes.swift
 //  LittleChat
 //
+// This class handle all the Theme changes
+//
 //  Created by Henrique Abreu on 29/09/2020.
 //  Copyright © 2020 Henrique Abreu. All rights reserved.
 //
@@ -83,5 +85,45 @@ class Themes{
         default:
             break
         }
+    }
+    
+    class func setThemeForContactCell(cell: UITableViewCell){
+        let theme = Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))
+
+        switch theme{
+        case .desert:
+            cell.textLabel?.textColor? = UIColor.black
+            cell.backgroundColor = UIColor.init(red: 1/255*153, green: 1/255*153, blue: 0, alpha: 1)
+        case .night:
+            cell.textLabel?.textColor? = UIColor.white
+            cell.backgroundColor =  UIColor.init(red: 1/255*64, green: 1/255*64, blue: 1/255*64, alpha: 1)
+        case .little:
+            cell.textLabel?.textColor? = UIColor.black
+            cell.backgroundColor = UIColor.init(red: 1/255*86, green: 1/255*192, blue: 1/255*136, alpha: 1)
+        default:
+            break
+        }
+    }
+    
+    class func setThemeForConversationCell(cell: UITableViewCell){
+        //TODO: Implement theme for conversation cell
+        return
+    }
+    
+    class func setThemeForSearchBar(searchBar : UISearchBar){
+        let theme = Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))
+        
+        switch theme{
+        case .desert:
+            searchBar.barTintColor = UIColor.init(red: 1, green: 1, blue: 1/255*204, alpha: 1)
+        case .night:
+            searchBar.barTintColor = UIColor.darkGray
+        case .little:
+            searchBar.barTintColor = UIColor.white
+        default:
+            break
+        }
+
+        
     }
 }
