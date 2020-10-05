@@ -13,6 +13,8 @@
 		992E50E52519FC3000DFA133 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992E50E42519FC2F00DFA133 /* Message.swift */; };
 		992FB32A25080F8D00C7D58A /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992FB32925080F8D00C7D58A /* FirebaseHelper.swift */; };
 		992FB32E25129E8C00C7D58A /* LittleChatUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992FB32D25129E8B00C7D58A /* LittleChatUsers.swift */; };
+		992FBFD7252B8AA0005C5014 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992FBFD6252B8AA0005C5014 /* DataController.swift */; };
+		992FBFDB252B8AF7005C5014 /* LittleChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 992FBFD9252B8AF7005C5014 /* LittleChat.xcdatamodeld */; };
 		993F3E462520F4C5008AE51C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F3E452520F4C5008AE51C /* SettingsViewController.swift */; };
 		994C7F1C25001A9400DE5677 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994C7F1B25001A9400DE5677 /* CreateAccountViewController.swift */; };
 		996489872518C26600128A89 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996489862518C26600128A89 /* MessageTableViewCell.swift */; };
@@ -36,6 +38,8 @@
 		992E50E42519FC2F00DFA133 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		992FB32925080F8D00C7D58A /* FirebaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		992FB32D25129E8B00C7D58A /* LittleChatUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleChatUsers.swift; sourceTree = "<group>"; };
+		992FBFD6252B8AA0005C5014 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		992FBFDA252B8AF7005C5014 /* LittleChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LittleChat.xcdatamodel; sourceTree = "<group>"; };
 		993F3E452520F4C5008AE51C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		994C7F1B25001A9400DE5677 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		996489862518C26600128A89 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 				992FB32925080F8D00C7D58A /* FirebaseHelper.swift */,
 				992FB32D25129E8B00C7D58A /* LittleChatUsers.swift */,
 				992E50E42519FC2F00DFA133 /* Message.swift */,
+				992FBFD6252B8AA0005C5014 /* DataController.swift */,
+				992FBFD9252B8AF7005C5014 /* LittleChat.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,8 +279,10 @@
 				99B0F0E424FED68100E806D3 /* LoginViewController.swift in Sources */,
 				996489872518C26600128A89 /* MessageTableViewCell.swift in Sources */,
 				992E50E52519FC3000DFA133 /* Message.swift in Sources */,
+				992FBFD7252B8AA0005C5014 /* DataController.swift in Sources */,
 				99B0F0E024FED68100E806D3 /* AppDelegate.swift in Sources */,
 				9925FC352523A70E00EB7CE3 /* Themes.swift in Sources */,
+				992FBFDB252B8AF7005C5014 /* LittleChat.xcdatamodeld in Sources */,
 				99B0F0E224FED68100E806D3 /* SceneDelegate.swift in Sources */,
 				991DE8E325040BFA00972A1D /* MainScreenViewController.swift in Sources */,
 				99F8FBF62506BE2300335FAF /* MessageViewController.swift in Sources */,
@@ -482,6 +490,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		992FBFD9252B8AF7005C5014 /* LittleChat.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				992FBFDA252B8AF7005C5014 /* LittleChat.xcdatamodel */,
+			);
+			currentVersion = 992FBFDA252B8AF7005C5014 /* LittleChat.xcdatamodel */;
+			path = LittleChat.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 99B0F0D424FED68000E806D3 /* Project object */;
 }
