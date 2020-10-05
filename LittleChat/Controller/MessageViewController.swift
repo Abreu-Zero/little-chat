@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import CoreData
 
 class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     //MARK: outlets and properties
-    
+
+    var dataController = DataController(modelName: "LittleChat")
     var userDestination: LittleChatUsers?
     var userID: String?
     var messages: [Message] = []
     var activeTextField: UITextField?
     var viewIsMoved = false
+    var savedText: TextMessage?
     @IBOutlet weak var pageTitle: UINavigationItem!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet var bgView: UIView!
@@ -30,6 +33,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         messagesTableView.dataSource = self
         messagesTableView.delegate = self
         messageTextField.delegate = self
+        dataController.load()
         
         guard let userDestination = userDestination else{
             //TODO: show alert for error
@@ -37,6 +41,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             navigationController?.popViewController(animated: true)
             return}
         pageTitle.title = userDestination.nickname
+        
         
         FirebaseHelper.getMessagesFrom(sender: userID!, destination: userDestination) { (dataMessages) in
             DispatchQueue.main.async {
@@ -48,6 +53,12 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             
         }
+        
+        let fetch : NSFetchRequest<TextMessage> = TextMessage.fetchRequest()
+        
+        guard let result = try? dataController.viewContext.fetch(fetch) else{return}
+        messageTextField.text = result[0].text
+        savedText = result[0]
     }
     
     //Subscribing and unsubs to show hide keyboard
@@ -95,6 +106,11 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             if success{
                 guard let newMessage = newMessage else{return}
                 self.messages.append(newMessage)
+                guard let savedText = self.savedText else{return}
+                self.dataController.viewContext.delete(savedText)
+                do{
+                    try self.dataController.viewContext.save() //TODO: polish this
+                }catch{return}
             }
         }
         self.messageTextField.text = ""
