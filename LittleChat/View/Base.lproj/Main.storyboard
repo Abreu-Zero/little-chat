@@ -600,6 +600,9 @@
                                         <rect key="frame" x="8" y="15" width="346" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="textFieldChanged:" destination="1HV-5g-hld" eventType="editingChanged" id="lHc-0J-baS"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2so-3X-5uK">
                                         <rect key="frame" x="362" y="16" width="36" height="32"/>

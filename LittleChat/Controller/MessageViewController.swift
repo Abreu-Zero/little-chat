@@ -57,13 +57,17 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         let fetch : NSFetchRequest<TextMessage> = TextMessage.fetchRequest()
         
         guard let result = try? dataController.viewContext.fetch(fetch) else{return}
-        messageTextField.text = result[0].text
-        savedText = result[0]
+        if result.count > 0{
+            messageTextField.text = result[0].text
+            savedText = result[0]
+        }
+        
     }
     
     //Subscribing and unsubs to show hide keyboard
     
     override func viewWillAppear(_ animated: Bool) {
+        dataController.autoSave(interval: 5)
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
         loadTheme()
@@ -171,6 +175,12 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.activeTextField = textField
+        savedText = TextMessage(context: dataController.viewContext)
+        
+    }
+    
+    @IBAction func textFieldChanged(_ sender: UITextField) {
+        savedText!.text = messageTextField.text
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -187,6 +197,5 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         Themes.setThemeForView(view: sendBgView)
         Themes.setThemeForView(view: messagesTableView)
     }
-    
 
 }

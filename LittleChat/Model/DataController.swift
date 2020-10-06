@@ -30,4 +30,15 @@ class DataController{
             completion?()
         }
     }
+    
+    func autoSave(interval: TimeInterval){
+        if viewContext.hasChanges{
+            try? viewContext.save()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + interval) {
+            self.autoSave(interval: interval)
+        }
+    }
+    
 }
