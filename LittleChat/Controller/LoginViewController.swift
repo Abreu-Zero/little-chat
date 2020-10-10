@@ -18,6 +18,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var bgView: UIView!
     @IBOutlet weak var loginButton: UIButton!
     
+    var dataController: DataController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +74,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         Themes.SetThemeForLabel(label: passLabel)
         Themes.SetThemeForLabel(label: emailLabel)
         Themes.setThemeForButton(buttonOne: nil, buttonTwo: loginButton)
+        Themes.setThemeForTextField(textField: passwordTextField)
+        Themes.setThemeForTextField(textField: emailTextField)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! MainScreenViewController
+        destination.dataController = dataController
     }
 }
 

@@ -33,7 +33,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="fsQ-9G-Z4i" kind="show" id="PD4-FZ-w07"/>
+                                    <segue destination="fsQ-9G-Z4i" kind="show" identifier="toCreateAccountSegue" id="PD4-FZ-w07"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rld-TS-Ord">
@@ -52,7 +52,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="5Fr-hG-pss" kind="show" id="2Ax-aA-6Wa"/>
+                                    <segue destination="5Fr-hG-pss" kind="show" identifier="toLoginSegue" id="2Ax-aA-6Wa"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Little Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIF-ap-hTI">
@@ -469,8 +469,11 @@
                     <navigationItem key="navigationItem" id="dFb-sF-dOj"/>
                     <connections>
                         <outlet property="bgView" destination="4uF-Nu-nIy" id="Wqa-oF-czO"/>
+                        <outlet property="desertLabel" destination="mUA-1b-1bo" id="P4h-32-IJq"/>
                         <outlet property="desertSwitch" destination="K34-3c-bgg" id="lkV-hp-Gjd"/>
+                        <outlet property="littleLabel" destination="vbW-x9-Z3Z" id="W9j-qL-FGt"/>
                         <outlet property="littleSwitch" destination="uLQ-nc-xga" id="8sa-VA-mK3"/>
+                        <outlet property="nightLabel" destination="qxb-LV-Zyv" id="86S-9G-gYh"/>
                         <outlet property="nightModeSwitch" destination="QqY-Va-Zql" id="fWJ-5b-NHW"/>
                     </connections>
                 </viewController>

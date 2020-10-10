@@ -14,6 +14,7 @@ class MainScreenViewController: UIViewController,  UITableViewDelegate, UITableV
     var users: [LittleChatUsers] = []
     var savedUsers: [LittleChatUsers] = []
     var chat: LittleChatUsers?
+    var dataController: DataController?
     
     @IBOutlet var bgView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -79,6 +80,7 @@ class MainScreenViewController: UIViewController,  UITableViewDelegate, UITableV
             guard let chat = chat else{return}
             destination.userDestination = chat //injecting user and destination to msg
             destination.userID = self.userID
+            destination.dataController = dataController
         }
     }
     
@@ -108,5 +110,4 @@ class MainScreenViewController: UIViewController,  UITableViewDelegate, UITableV
         Themes.setThemeForSearchBar(searchBar: searchBar)
         tableView.reloadData()
     }
-
 }

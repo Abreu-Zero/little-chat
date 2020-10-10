@@ -13,7 +13,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: outlets and properties
 
-    var dataController = DataController(modelName: "LittleChat")
+    var dataController: DataController?
     var userDestination: LittleChatUsers?
     var userID: String?
     var messages: [Message] = []
@@ -33,7 +33,6 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         messagesTableView.dataSource = self
         messagesTableView.delegate = self
         messageTextField.delegate = self
-        dataController.load()
         
         guard let userDestination = userDestination else{
             //TODO: show alert for error
@@ -55,11 +54,15 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         let fetch : NSFetchRequest<TextMessage> = TextMessage.fetchRequest()
-        
-        guard let result = try? dataController.viewContext.fetch(fetch) else{return}
+        print("tring fetch")
+        guard let result = try? dataController!.viewContext.fetch(fetch) else{return}
         if result.count > 0{
-            messageTextField.text = result[0].text
-            savedText = result[0]
+            print("fetched with \(result.count) items")
+            messageTextField.text = result[result.count-1].text
+            savedText = result[result.count-1]
+            for i in 0..<result.count-1{
+                dataController?.viewContext.delete(result[i])
+            }
         }
         
     }
@@ -67,7 +70,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     //Subscribing and unsubs to show hide keyboard
     
     override func viewWillAppear(_ animated: Bool) {
-        dataController.autoSave(interval: 5)
+        dataController?.autoSave(interval: 5)
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
         loadTheme()
@@ -111,9 +114,9 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
                 guard let newMessage = newMessage else{return}
                 self.messages.append(newMessage)
                 guard let savedText = self.savedText else{return}
-                self.dataController.viewContext.delete(savedText)
+                self.dataController?.viewContext.delete(savedText)
                 do{
-                    try self.dataController.viewContext.save() //TODO: polish this
+                    try self.dataController?.viewContext.save() //TODO: polish this
                 }catch{return}
             }
         }
@@ -175,7 +178,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.activeTextField = textField
-        savedText = TextMessage(context: dataController.viewContext)
+        savedText = TextMessage(context: dataController!.viewContext)
         
     }
     
@@ -196,6 +199,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         Themes.setThemeForView(view: bgView)
         Themes.setThemeForView(view: sendBgView)
         Themes.setThemeForView(view: messagesTableView)
+        Themes.setThemeForTextField(textField: messageTextField)
     }
 
 }

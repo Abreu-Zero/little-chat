@@ -11,8 +11,11 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var nightModeSwitch: UISwitch!
+    @IBOutlet weak var nightLabel: UILabel!
     @IBOutlet weak var desertSwitch: UISwitch!
+    @IBOutlet weak var desertLabel: UILabel!
     @IBOutlet weak var littleSwitch: UISwitch!
+    @IBOutlet weak var littleLabel: UILabel!
     @IBOutlet var bgView: UIView!
     
     var switchs: [UISwitch]?
@@ -58,7 +61,8 @@ class SettingsViewController: UIViewController {
         Themes.setThemeForRadio(radio: desertSwitch)
         Themes.setThemeForRadio(radio: nightModeSwitch)
         Themes.setThemeForRadio(radio: littleSwitch)
-
-
+        Themes.SetThemeForLabel(label: desertLabel)
+        Themes.SetThemeForLabel(label: nightLabel)
+        Themes.SetThemeForLabel(label: littleLabel)
     }
 }

@@ -12,6 +12,7 @@ import FirebaseAuth
 class InitialViewController: UIViewController {
 
     var isLoggedIn = false
+    var dataController: DataController?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var createAccountButton: UIButton!
@@ -42,6 +43,19 @@ class InitialViewController: UIViewController {
         Themes.setThemeForButton(buttonOne: createAccountButton, buttonTwo: loginButton)
         Themes.setThemeForView(view: view)
         Themes.SetThemeForLabel(label: titleLabel)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "autoLoginSegue"{
+            let targetVC = segue.destination as! MainScreenViewController
+            targetVC.dataController = dataController
+        }else if segue.identifier == "toCreateAccountSegue"{
+            let targetVC = segue.destination as! CreateAccountViewController
+            targetVC.dataController = dataController
+        }else{
+            let targetVC = segue.destination as! LoginViewController
+            targetVC.dataController = dataController
+        }
     }
 
 }

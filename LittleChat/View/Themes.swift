@@ -19,6 +19,8 @@ class Themes{
         case little = 1
     }
     
+    //MARK: Button themes
+    
     class func setThemeForButton(buttonOne: UIButton?, buttonTwo: UIButton?){
         
         let theme = Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))
@@ -86,6 +88,8 @@ class Themes{
             break
         }
     }
+    
+    //MARK: contact themes
     
     class func setThemeForContactCell(cell: UITableViewCell){
         let theme = Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))
@@ -170,6 +174,24 @@ class Themes{
             radio.onTintColor = UIColor.init(red: 1/255*64, green: 1/255*64, blue: 1/255*64, alpha: 1)
         case .little:
             radio.onTintColor = UIColor.init(red: 1/255*86, green: 1/255*192, blue: 1/255*136, alpha: 1)
+        default:
+            break
+        }
+    }
+    
+    class func setThemeForTextField(textField: UITextField){
+        let theme = Theme(rawValue: UserDefaults.standard.integer(forKey: "theme"))
+
+        switch theme{
+        case .desert:
+            textField.textColor? = UIColor.black
+            textField.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1/255*204, alpha: 1)
+        case .night:
+            textField.textColor = UIColor.white
+            textField.backgroundColor = UIColor.darkGray
+        case .little:
+            textField.textColor = UIColor.black
+            textField.backgroundColor = UIColor.white
         default:
             break
         }

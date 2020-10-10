@@ -12,15 +12,14 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         //Checks if user has set theme, if not little theme it is
         if(UserDefaults.standard.integer(forKey: "theme") == 0){
                 UserDefaults.standard.setValue(1, forKey: "theme")
 
-        }
+        }        
+        
         return true
     }
 

@@ -25,6 +25,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var bgView: UIView!
     @IBOutlet weak var createAccountButton: UIButton!
     
+    var dataController: DataController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nicknameTextField.delegate = self
@@ -147,7 +149,15 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         Themes.SetThemeForLabel(label: passLabel)
         Themes.SetThemeForLabel(label: nickLabel)
         Themes.SetThemeForLabel(label: emailLabel)
+        Themes.setThemeForTextField(textField: nicknameTextField)
+        Themes.setThemeForTextField(textField: emailTextField)
+        Themes.setThemeForTextField(textField: passwordTextField)
+        Themes.setThemeForTextField(textField: confirmationTextField)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! MainScreenViewController
+        destination.dataController = dataController
+    }
 
 }
