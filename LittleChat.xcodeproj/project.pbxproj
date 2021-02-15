@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9905400925DAD2DD003CBDD1 /* LittleChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9905400825DAD2DD003CBDD1 /* LittleChatUITests.swift */; };
 		991DE8E1250409AF00972A1D /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991DE8E0250409AF00972A1D /* InitialViewController.swift */; };
 		991DE8E325040BFA00972A1D /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991DE8E225040BFA00972A1D /* MainScreenViewController.swift */; };
 		9925FC352523A70E00EB7CE3 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9925FC342523A70E00EB7CE3 /* Themes.swift */; };
@@ -15,6 +16,7 @@
 		992FB32E25129E8C00C7D58A /* LittleChatUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992FB32D25129E8B00C7D58A /* LittleChatUsers.swift */; };
 		992FBFD7252B8AA0005C5014 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992FBFD6252B8AA0005C5014 /* DataController.swift */; };
 		992FBFDB252B8AF7005C5014 /* LittleChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 992FBFD9252B8AF7005C5014 /* LittleChat.xcdatamodeld */; };
+		993E33C625D5417600E996F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 993E33C525D5417600E996F1 /* GoogleService-Info.plist */; };
 		993F3E462520F4C5008AE51C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993F3E452520F4C5008AE51C /* SettingsViewController.swift */; };
 		994C7F1C25001A9400DE5677 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994C7F1B25001A9400DE5677 /* CreateAccountViewController.swift */; };
 		996489872518C26600128A89 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996489862518C26600128A89 /* MessageTableViewCell.swift */; };
@@ -24,13 +26,25 @@
 		99B0F0E724FED68100E806D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B0F0E524FED68100E806D3 /* Main.storyboard */; };
 		99B0F0E924FED68700E806D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99B0F0E824FED68700E806D3 /* Assets.xcassets */; };
 		99B0F0EC24FED68700E806D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B0F0EA24FED68700E806D3 /* LaunchScreen.storyboard */; };
-		99B0F0F424FED6E000E806D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99B0F0F324FED6E000E806D3 /* GoogleService-Info.plist */; };
 		99F8FBF62506BE2300335FAF /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F8FBF52506BE2300335FAF /* MessageViewController.swift */; };
 		A9EA1EBCB6CFD06ACA102449 /* Pods_LittleChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB72D4A7C59889E1533CFF6 /* Pods_LittleChat.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9905400B25DAD2DD003CBDD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99B0F0D424FED68000E806D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99B0F0DB24FED68100E806D3;
+			remoteInfo = LittleChat;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		537885D2B6695B9EDADED97D /* Pods-LittleChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleChat.release.xcconfig"; path = "Target Support Files/Pods-LittleChat/Pods-LittleChat.release.xcconfig"; sourceTree = "<group>"; };
+		9905400625DAD2DD003CBDD1 /* LittleChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9905400825DAD2DD003CBDD1 /* LittleChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleChatUITests.swift; sourceTree = "<group>"; };
+		9905400A25DAD2DD003CBDD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		991DE8DF2504089500972A1D /* LittleChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleChat.entitlements; sourceTree = "<group>"; };
 		991DE8E0250409AF00972A1D /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		991DE8E225040BFA00972A1D /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +54,8 @@
 		992FB32D25129E8B00C7D58A /* LittleChatUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleChatUsers.swift; sourceTree = "<group>"; };
 		992FBFD6252B8AA0005C5014 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		992FBFDA252B8AF7005C5014 /* LittleChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LittleChat.xcdatamodel; sourceTree = "<group>"; };
+		993E33C525D5417600E996F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		993E33C825D5417E00E996F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		993F3E452520F4C5008AE51C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		994C7F1B25001A9400DE5677 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		996489862518C26600128A89 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -51,13 +67,19 @@
 		99B0F0E824FED68700E806D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99B0F0EB24FED68700E806D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99B0F0ED24FED68700E806D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99B0F0F324FED6E000E806D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99F8FBF52506BE2300335FAF /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		ACB72D4A7C59889E1533CFF6 /* Pods_LittleChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FBA45AE1915B78070E1104 /* Pods-LittleChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleChat.debug.xcconfig"; path = "Target Support Files/Pods-LittleChat/Pods-LittleChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9905400325DAD2DD003CBDD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		99B0F0D924FED68100E806D3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,10 +99,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9905400725DAD2DD003CBDD1 /* LittleChatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9905400825DAD2DD003CBDD1 /* LittleChatUITests.swift */,
+				9905400A25DAD2DD003CBDD1 /* Info.plist */,
+			);
+			path = LittleChatUITests;
+			sourceTree = "<group>";
+		};
 		992FB32825080F6F00C7D58A /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				992FB32925080F8D00C7D58A /* FirebaseHelper.swift */,
+				993E33C525D5417600E996F1 /* GoogleService-Info.plist */,
 				992FB32D25129E8B00C7D58A /* LittleChatUsers.swift */,
 				992E50E42519FC2F00DFA133 /* Message.swift */,
 				992FBFD6252B8AA0005C5014 /* DataController.swift */,
@@ -118,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				99B0F0DE24FED68100E806D3 /* LittleChat */,
+				9905400725DAD2DD003CBDD1 /* LittleChatUITests */,
 				99B0F0DD24FED68100E806D3 /* Products */,
 				B9D2E0CCC62E0F1B1DD73970 /* Pods */,
 				81FD9D9662F27C5FA1DF550D /* Frameworks */,
@@ -128,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				99B0F0DC24FED68100E806D3 /* LittleChat.app */,
+				9905400625DAD2DD003CBDD1 /* LittleChatUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,8 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				991DE8DF2504089500972A1D /* LittleChat.entitlements */,
-				99B0F0F324FED6E000E806D3 /* GoogleService-Info.plist */,
 				99B0F0DF24FED68100E806D3 /* AppDelegate.swift */,
+				993E33C825D5417E00E996F1 /* GoogleService-Info.plist */,
 				99B0F0E124FED68100E806D3 /* SceneDelegate.swift */,
 				992FB32825080F6F00C7D58A /* Model */,
 				994C7F1925001A1B00DE5677 /* Controller */,
@@ -159,6 +193,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9905400525DAD2DD003CBDD1 /* LittleChatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9905400F25DAD2DD003CBDD1 /* Build configuration list for PBXNativeTarget "LittleChatUITests" */;
+			buildPhases = (
+				9905400225DAD2DD003CBDD1 /* Sources */,
+				9905400325DAD2DD003CBDD1 /* Frameworks */,
+				9905400425DAD2DD003CBDD1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9905400C25DAD2DD003CBDD1 /* PBXTargetDependency */,
+			);
+			name = LittleChatUITests;
+			productName = LittleChatUITests;
+			productReference = 9905400625DAD2DD003CBDD1 /* LittleChatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		99B0F0DB24FED68100E806D3 /* LittleChat */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99B0F0F024FED68700E806D3 /* Build configuration list for PBXNativeTarget "LittleChat" */;
@@ -184,10 +236,14 @@
 		99B0F0D424FED68000E806D3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1160;
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Henrique Abreu";
 				TargetAttributes = {
+					9905400525DAD2DD003CBDD1 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 99B0F0DB24FED68100E806D3;
+					};
 					99B0F0DB24FED68100E806D3 = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -207,17 +263,25 @@
 			projectRoot = "";
 			targets = (
 				99B0F0DB24FED68100E806D3 /* LittleChat */,
+				9905400525DAD2DD003CBDD1 /* LittleChatUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9905400425DAD2DD003CBDD1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		99B0F0DA24FED68100E806D3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				99B0F0EC24FED68700E806D3 /* LaunchScreen.storyboard in Resources */,
-				99B0F0F424FED6E000E806D3 /* GoogleService-Info.plist in Resources */,
+				993E33C625D5417600E996F1 /* GoogleService-Info.plist in Resources */,
 				99B0F0E924FED68700E806D3 /* Assets.xcassets in Resources */,
 				99B0F0E724FED68100E806D3 /* Main.storyboard in Resources */,
 			);
@@ -268,6 +332,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9905400225DAD2DD003CBDD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9905400925DAD2DD003CBDD1 /* LittleChatUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		99B0F0D824FED68100E806D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,6 +364,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9905400C25DAD2DD003CBDD1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99B0F0DB24FED68100E806D3 /* LittleChat */;
+			targetProxy = 9905400B25DAD2DD003CBDD1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		99B0F0E524FED68100E806D3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -312,6 +392,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9905400D25DAD2DD003CBDD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KY935XVWY;
+				INFOPLIST_FILE = LittleChatUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Nuclear-Zero.LittleChatUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LittleChat;
+			};
+			name = Debug;
+		};
+		9905400E25DAD2DD003CBDD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KY935XVWY;
+				INFOPLIST_FILE = LittleChatUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Nuclear-Zero.LittleChatUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LittleChat;
+			};
+			name = Release;
+		};
 		99B0F0EE24FED68700E806D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -471,6 +593,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9905400F25DAD2DD003CBDD1 /* Build configuration list for PBXNativeTarget "LittleChatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9905400D25DAD2DD003CBDD1 /* Debug */,
+				9905400E25DAD2DD003CBDD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		99B0F0D724FED68000E806D3 /* Build configuration list for PBXProject "LittleChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
