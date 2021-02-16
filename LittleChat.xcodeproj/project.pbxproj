@@ -43,7 +43,7 @@
 /* Begin PBXFileReference section */
 		537885D2B6695B9EDADED97D /* Pods-LittleChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleChat.release.xcconfig"; path = "Target Support Files/Pods-LittleChat/Pods-LittleChat.release.xcconfig"; sourceTree = "<group>"; };
 		9905400625DAD2DD003CBDD1 /* LittleChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9905400825DAD2DD003CBDD1 /* LittleChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleChatUITests.swift; sourceTree = "<group>"; };
+		9905400825DAD2DD003CBDD1 /* LittleChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LittleChatUITests.swift; path = LittleChatUITests/LittleChatUITests.swift; sourceTree = SOURCE_ROOT; };
 		9905400A25DAD2DD003CBDD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		991DE8DF2504089500972A1D /* LittleChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleChat.entitlements; sourceTree = "<group>"; };
 		991DE8E0250409AF00972A1D /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -102,7 +102,6 @@
 		9905400725DAD2DD003CBDD1 /* LittleChatUITests */ = {
 			isa = PBXGroup;
 			children = (
-				9905400825DAD2DD003CBDD1 /* LittleChatUITests.swift */,
 				9905400A25DAD2DD003CBDD1 /* Info.plist */,
 			);
 			path = LittleChatUITests;
@@ -177,6 +176,7 @@
 				994C7F1925001A1B00DE5677 /* Controller */,
 				994C7F1A25001A3100DE5677 /* View */,
 				99B0F0ED24FED68700E806D3 /* Info.plist */,
+				9905400825DAD2DD003CBDD1 /* LittleChatUITests.swift */,
 			);
 			path = LittleChat;
 			sourceTree = "<group>";
